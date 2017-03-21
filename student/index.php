@@ -55,7 +55,7 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
                   echo "It has been REJECTED";
                 ?>
                   <br />
-                  <a href="#"><button class="w3-btn w3-btn-block w3-grey">Submit Another Concept</button></a>
+                  <button class="w3-btn w3-btn-block w3-grey" onclick="submitConcept()">Submit Another Concept</button>
                   <br 
               <?php
                  }
@@ -67,7 +67,7 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
 
             } else {  ?>
               <br />
-              <a href="#"><button class="w3-btn w3-btn-block w3-grey">Submit Concept</button></a>
+              <button class="w3-btn w3-btn-block w3-grey" onclick="submitConcept()">Submit Concept</button>
               <br />
             <?php } 
               
@@ -155,7 +155,7 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
     
     <!-- Middle Column -->
     <div class="w3-col m7">
-    
+    <div id="main">
       <div class="w3-row-padding">
         <div class="w3-col m12">
           <div class="w3-card-2 w3-round w3-white">
@@ -166,7 +166,7 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
         </div>
       </div>
       
-      <div id="main">
+      
       <?php include '../announce.php'; ?>
       
       </div>
@@ -212,7 +212,24 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
 <!-- End Page Container -->
 </div>
 <br>
+<script>
+     var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+       document.getElementById("main").innerHTML = this.responseText;
+      }
+    };
+function loadDoc() {
+  xhttp.open("GET", "../supervisor.php", true);
+    xhttp.send();
+  }
 
+function submitConcept() {
+  xhttp.open("GET", "conceptnote.php", true);
+    xhttp.send();
+  }
+
+  </script>
 <!-- Footer -->
 <?php include '..\footer.php'; ?>
 
