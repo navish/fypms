@@ -31,10 +31,30 @@
         $result = mysqli_query($dbcon,$query)or die(mysqli_error());
         $num_row = mysqli_num_rows($result);
           $user_row=mysqli_fetch_array($result);
-          if( $num_row > 0 ) {
 
-        $_SESSION['id'] = $username;
-            header('location:student/');
+            $role = $user_row['role'];
+            #var_dump($role);
+          if( $num_row > 0 ) {
+            $_SESSION['id'] = $username;
+
+            if ($role == 2) 
+            {
+               header('location:student/');
+            } 
+
+            else if($role == 1) 
+            {
+               header('location:supervisor/');
+            }
+
+            else if($role == 0) 
+            {
+               header('location:coordinator/');
+            }
+            
+
+        #$_SESSION['id'] = $username;
+           
                     
           }
           else{ ?>

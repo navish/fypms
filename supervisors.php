@@ -1,12 +1,10 @@
-<?php include '../header.php'; 
+<?php include 'header.php'; 
 //$get_user = $_GET['user'];
 $get_user = $_SESSION['id'];
 
 #$sql = "SELECT * FROM student WHERE regNo = $get_user";
-$result = mysqli_query($dbcon, "SELECT * FROM student WHERE regNo = '$get_user'") or die(mysqli_error());
+$result = mysqli_query($dbcon, "SELECT * FROM student WHERE regNo = '$get_user'") or die(mysql_error());
 $user_row = mysqli_fetch_array($result);
-
-$regNo =  $user_row['regNo']; var_dump($regNo);
 ?>
 
 
@@ -23,8 +21,7 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
          <p class="w3-center"><img src="../images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
          <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> <?php echo $user_row['lName'].", ".$user_row['fName']." ".$user_row['mName'] ?> </p>
-         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i><?php echo $user_row['regNo'];  ?></p>
-
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i><?php echo $user_row['regNo']; ?></p>
          <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> <?php echo $user_row['course']; ?></p>
         </div>
       </div>
@@ -35,42 +32,23 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
         <div class="w3-white">
           <button onclick="myFunction('Demo1')" class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-file fa-fw w3-margin-right"></i>Concept Note</button>
           <div id="Demo1" class="w3-hide w3-container">
-            <p>
-
-            <?php 
-            #$conceptsql = "SELECT * FROM conceptnote WHERE student = '$regNo'";
-            $studentconcept = mysqli_query($dbcon, "SELECT * FROM conceptnote WHERE studentid = '$regNo'") or die(mysqli_error());
-
-            $concept_note = mysqli_fetch_array($studentconcept);
-            $concept_num_row = mysqli_num_rows($studentconcept);
-            if($concept_num_row > "0") {
-              echo "You submitted a concept note. <br />";
-
-                $approval = $concept_note['approval'];
-
-                if($approval == 'approved') {
-                  echo "It has been APPROVED.";
-                }
-                else if ($approval == 'disapproved') {
-                  echo "It has been REJECTED";
-                ?>
-                  <br />
-                  <a href="#"><button class="w3-btn w3-btn-block w3-grey">Submit Another Concept</button></a>
-                  <br 
-              <?php
-                 }
-                else
-                {
-                  echo "It is waiting approval";
-                }
-                
-
-            } else {  ?>
-              <br />
-              <a href="#"><button class="w3-btn w3-btn-block w3-grey">Submit Concept</button></a>
-              <br />
-            <?php } 
+            <p>Submitted.
+            <?php #Check if you have submitted concept note 
+            /*if (concepnotesubmitted) {
+              echo "You have submitted your concept note";
+              if (noteis approved) {
+                echo "It has been approved";
+              }
+              else {
+                echo "It is waiting approval";
+              }
+              if (note is rejected) {
+                echo "Your Concept Note has been rejected";
+              }
               
+            }
+            else
+              echo "You have not submitted your concept note";*/
             ?> 
 
             </p>
@@ -86,32 +64,18 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
             #$sqlgroup = "SELECT grpNo FROM members WHERE regNo='$get_user'";
             $sqlgrp = mysqli_query($dbcon, "SELECT grpNo FROM members WHERE regNo='$get_user'") or die(mysqli_error());
             $group_row = mysqli_fetch_array($sqlgrp);
-            $num_row = mysqli_num_rows($sqlgrp);
-            $groupNo = $group_row['grpNo'];
+            #var_dump($group_row);
 
+            #$group_row =;
+            echo "<p>Your group number is ". $group_row['grpNo'] . "</p>" ;
+             $groupNo = $group_row['grpNo'];
 
-            if ($num_row > 0) {
-              #var_dump($group_row);
+            $supId =  "SELECT * FROM `supervisor` WHERE empId = (SELECT empId FROM grp WHERE grpNo = '$groupNo')";
+            $supIdsql = mysqli_query($dbcon,$supId) or die(mysqli_error());
+            $sup_row = mysqli_fetch_array($supIdsql);
 
-              #$group_row =;
-              echo "<p>Your group number is ". $group_row['grpNo'] . "</p>" ;
-               $groupNo = $group_row['grpNo'];
-
-              $supId =  "SELECT * FROM `supervisor` WHERE empId = (SELECT empId FROM grp WHERE grpNo = '$groupNo')";
-              $supIdsql = mysqli_query($dbcon,$supId) or die(mysqli_error());
-              $sup_row = mysqli_fetch_array($supIdsql);
-
-              $supervisor = $sup_row['fName']." ".$sup_row['lName'];
-              echo "Your supervisor is ".$supervisor;
-            } 
-            else { ?>
-              <br />
-              <a href="#"><button class="w3-btn w3-btn-block w3-grey">Suggest Group</button></a>
-              <br />
-            <?php } 
-            
-           
-
+            $supervisor = $sup_row['fName']." ".$sup_row['lName'];
+            echo "Your supervisor is ".$supervisor;
 
 
             ?>
@@ -167,7 +131,7 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
       </div>
       
       <div id="main">
-      <?php include '../announce.php'; ?>
+      <?php include 'supervisor.php'; ?>
       
       </div>
       
@@ -188,9 +152,10 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
       <br>
       
       <div class="w3-card-2 w3-round w3-white w3-center">
-        
-          <a href="../supervisors.php"><button class="w3-btn-block w3-blue "> SUPERVISORS </button></a>
-       
+        <div class="w3-container">
+          <p>Supervisors</p>
+          
+        </div>
       </div>
       <br>
       
@@ -214,5 +179,5 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
 <br>
 
 <!-- Footer -->
-<?php include '..\footer.php'; ?>
+<?php include 'footer.php'; ?>
 
