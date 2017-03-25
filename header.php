@@ -19,19 +19,16 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
   include ('dbcon.php'); 
 ?>
 
-<body class="w3-theme-l5">
+<body class="w3-theme-l5" onload="">
 <!-- Navbar -->
 <div class="w3-top">
  <div class="w3-bar w3-blue w3-left-align w3-large w3-padding">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-opennav w3-right w3-padding-small w3-hover-white w3-large " href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
   <a href="index.php" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i></a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
 
   <!-- RIGHT SIDE -->
     <a href="../logout.php" title="Logout"><button class="w3-bar-item w3-btn w3-small w3-hide-small w3-right w3-hover-white">Logout</button></a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-small w3-hover-white" title="My Account"><img src="../images/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a>
+  <button onclick="loadUser()" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-small w3-hover-white" title="My Account"><img src="../images/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></button>
  </div>
 </div>
 

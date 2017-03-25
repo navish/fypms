@@ -27,6 +27,28 @@ function openNav() {
     }
 }
 </script>
+<!-- Index Page -->
+<script>
+     var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+       document.getElementById("main").innerHTML = this.responseText;
+      }
+    };
+function loadDoc() {
+  xhttp.open("GET", "../supervisor.php", true);
+    xhttp.send();
+  }
+
+function submitConcept() {
+  xhttp.open("GET", "conceptnote.php", true);
+    xhttp.send();
+  }
+function suggestGroup() {
+  xhttp.open("GET", "suggestgroup.php", true);
+    xhttp.send();
+  }
+  </script>
 
 </body>
 </html>

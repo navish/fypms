@@ -3,9 +3,8 @@
 	
 	include '../dbcon.php';
 	$studentconcept = mysqli_query($dbcon, "SELECT * FROM conceptnote ") or die(mysqli_error());
-
-    $concept_note = mysqli_fetch_array($studentconcept);
-    $concept_num_row = mysqli_num_rows($studentconcept);
+    //var_dump($studentconcept);
+    //$concept_num_row = mysqli_num_rows($studentconcept);
      
 	?> 
 <table class="w3-table w3-hoverable">
@@ -20,7 +19,7 @@
 	  </tr>
 	</thead>
 	<?php 
-		while($concept_note = mysqli_fetch_array($studentconcept)) {
+		while($concept_note=mysqli_fetch_array($studentconcept)) {
 	?>
 	<tr>
 	  <td><?php echo $concept_note['studentid']; ?></td>

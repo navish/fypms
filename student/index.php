@@ -106,7 +106,7 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
             } 
             else { ?>
               <br />
-              <a href="#"><button class="w3-btn w3-btn-block w3-grey">Suggest Group</button></a>
+              <button onclick="suggestGroup()" class="w3-btn w3-btn-block w3-grey">Suggest Group</button>
               <br />
             <?php } 
             
@@ -228,7 +228,10 @@ function submitConcept() {
   xhttp.open("GET", "conceptnote.php", true);
     xhttp.send();
   }
-
+function suggestGroup() {
+  xhttp.open("GET", "suggestgroup.php", true);
+    xhttp.send();
+  }
   </script>
 <!-- Footer -->
 <?php include '..\footer.php'; ?>

@@ -2,15 +2,8 @@
 <?php
 	
 	include 'dbcon.php';
-	$grpsql = mysqli_query($dbcon, "SELECT * FROM grp ") or die(mysqli_error());
-    $group = mysqli_fetch_array($grpsql);
-
-    $group_rows = mysqli_num_rows($grpsql);
-    $groupNo = $group['grpNo'];
-    //var_dump($groupNo);
-    ?>
-
-    <table class="w3-table w3-hoverable">
+?>
+	<table class="w3-table w3-hoverable">
 	<thead>
 	  <tr class="w3-light-grey">
 	    <th>Group No.</th>
@@ -21,19 +14,21 @@
 	  </tr>
 	</thead>
 	<tr>
-	  <td><?php echo $groupNo ?></td>
+	  
+	
+<?php 
+	  	$grpsql = mysqli_query($dbcon, "SELECT * FROM grp ") or die(mysqli_error());
+	  	
+    	while ($group = mysqli_fetch_array($grpsql)) {  	
+    	$groupNo = $group['grpNo'];
+    //var_dump($grpsql);
+    	?>
+  
+    	<td> <?php echo $groupNo; ?> </td>
 	  <td>
-
-	<?php
-    /*$membersql = mysqli_query($dbcon, "SELECT regNo FROM members where grpNo= '$groupNo'") or die(mysqli_error()); 
-    $members = mysqli_fetch_array($membersql);
-    $members_rows = mysqli_num_rows($membersql);
-
-    $memberNo = $members['regNo'];
-    var_dump($memberNo);
- */
-	//$membersql = "SELECT * FROM student WHERE regNo IN (SELECT regNo FROM members where grpNo = '$groupNo')";
-
+ <?php
+       //$group_rows = mysqli_num_rows($grpsql);
+          
 	$membersql = mysqli_query($dbcon, "SELECT regNo, fName, mName, lName FROM student WHERE regNo IN (SELECT regNo FROM members where grpNo = '$groupNo')") or die(mysqli_error()); 
 	
 	$rows = 1;
@@ -69,6 +64,11 @@
  	?>
 	 </td>
 	  <td><?php echo $title ; ?></td>
-	  <td><?php echo $supervisor; ?>
-	<?php //} ?>
+	  <td><?php echo $supervisor; ?></td>
+	  </tr>
+	<?php 
+		//$group_rows++;
+	} 
+
+	?>
 </table>

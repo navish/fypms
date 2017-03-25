@@ -1,5 +1,11 @@
 <?php
   include '../header.php';
+
+$get_user = $_SESSION['id'];
+
+#$sql = "SELECT * FROM student WHERE regNo = $get_user";
+$result = mysqli_query($dbcon, "SELECT * FROM supervisor WHERE empId = '$get_user'") or die(mysqli_error());
+$user_row = mysqli_fetch_array($result);
 ?>
 
 <!-- Page Container -->
@@ -11,12 +17,11 @@
       <!-- Profile -->
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-         <h4 class="w3-center">My Profile</h4>
+         <h4 class="w3-center"></h4>
          <p class="w3-center"><img src="../images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
-         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Designer, UI</p>
-         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
-         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
+         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> <?php echo $user_row['fName']." ".$user_row['lName']; ?></p>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> <?php echo "ID: ".$user_row['empId']; ?></p>
         </div>
       </div>
       <br>
@@ -24,7 +29,6 @@
       <!-- Accordion -->
       <div class="w3-card-2 w3-round">
             <div class="w3-white">
-                <p>
 
             <?php 
             #$conceptsql = "SELECT * FROM conceptnote WHERE student = '$regNo'";
@@ -33,20 +37,17 @@
             $concept_note = mysqli_fetch_array($studentconcept);
             $concept_num_row = mysqli_num_rows($studentconcept);
             if($concept_num_row > "0") { ?>
-                <button class="w3-btn w3-btn-block w3-grey" onclick="viewConcepts()">View Concept Notes</button>
+                <button class="w3-btn w3-btn-block w3-blue" onclick="viewConcepts()">View Concept Notes</button>
                 <?php } 
             else { 
                 echo "There are no any submitted concepts. <br />";
             } 
               
             ?> 
-
-            </p>
-
-          <button onclick="myFunction('Demo1')" class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-file fa-fw w3-margin-right"></i>Concept Note</button>
+         <!--button onclick="myFunction('Demo1')" class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-file fa-fw w3-margin-right"></i>Concept Note</button>
           <div id="Demo1" class="w3-hide w3-container">
             
-          </div>
+          </div-->
         </div>
       </div>
       <br />
@@ -59,8 +60,8 @@
         <br />
         <div class="w3-card-2 w3-round">
         <div class="w3-white">  
-          <button onclick="myFunction('Demo2')" class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> Group </button>
-          <div id="Demo2" class="w3-hide w3-container">
+          <!--button onclick="myFunction('Demo2')" class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> Group </button>
+          <div id="Demo2" class="w3-hide w3-container" -->
             <?php 
             #$sqlgroup = "SELECT grpNo FROM members WHERE regNo='$get_user'";
             $sqlgrp = mysqli_query($dbcon, "SELECT grpNo FROM members WHERE regNo='$get_user'") or die(mysqli_error());
@@ -84,8 +85,7 @@
               echo "Your supervisor is ".$supervisor;
             } 
             else { ?>
-              <br />
-              <a href="#"><button class="w3-btn w3-btn-block w3-grey">Suggest Group</button></a>
+              <button onclick="" class="w3-btn w3-btn-block w3-blue">Approve Group</button>
               <br />
             <?php } 
             
@@ -96,7 +96,7 @@
             ?>
               
             
-          </div>
+          <!--/div -->
         </div>
       </div>
       <br />
@@ -145,8 +145,8 @@
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
               <h6 class="w3-opacity">COORDINATOR</h6>
-              <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
-              <button type="button" class="w3-btn w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
+              <p contenteditable="true" class="w3-border w3-padding">Make an Announcement</p>
+              <button type="button" class="w3-btn w3-theme" onclick="postAnnouncement()"><i class="fa fa-pencil"></i>  Post</button> 
             </div>
           </div>
         </div>
