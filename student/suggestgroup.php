@@ -1,6 +1,9 @@
 
 <?php
   include '../dbcon.php';
+  session_start();
+
+  $studentId = $_SESSION['id'];
 ?>
 
       <div class="w3-row-padding">
@@ -30,19 +33,30 @@
               <div class="w3-col m6"><span id="member2"></span></div>
               </div>
                <br />
-              <div class="w3-row"><div class="w3-col m6"><input type="text" name="lMember" class="w3-input" placeholder="Third Member" oninput="showMember3(this.value)"></div>
+              <!--div class="w3-row"><div class="w3-col m6"><input type="text" name="lMember" class="w3-input" placeholder="Third Member" oninput="showMember3(this.value)"></div>
               <div class="w3-col m6"><span id="member3"></span></div>
               </div>
-               <br />
+               <br /-->
 
               <br />
-              <button type="submit" class="w3-padding w3-btn-block w3-blue">Submit</button>
+              <button type="submit" name="submit" class="w3-padding w3-btn-block w3-blue">Submit</button>
             </form>
           </div>
         </div>
     </div>
   </div>
 <script>
+
+<?php
+
+if(isset($_POST['submit'])) 
+{
+  $fMember = $_POST['fMember'];
+  $sMember = $_POST['sMember'];
+
+  mysqli_query("INSERT into suggestedgroup(fMember, sMember, lMember) VALUES '$studentId','$sMember','$lMember'")
+}
+?>
 
 function showMember(str) {
     if (str.length == 0) { 
@@ -74,7 +88,7 @@ function showMember2(str) {
         xmlhttp.send();
     }
 }
-function showMember3(str) {
+/*function showMember3(str) {
     if (str.length == 0) { 
         document.getElementById("member3").innerHTML = "";
         return;
@@ -88,6 +102,6 @@ function showMember3(str) {
         xmlhttp.open("GET", "../getmember.php?q=" + str, true);
         xmlhttp.send();
     }
-}
+}*/
 </script>
 

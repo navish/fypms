@@ -27,7 +27,7 @@
                 
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $query = "SELECT * FROM login WHERE user='$username' AND password='$password'";
+        $query = "SELECT * FROM login WHERE user='$username' AND passwrd='$password'";
         $result = mysqli_query($dbcon,$query)or die(mysqli_error());
         $num_row = mysqli_num_rows($result);
           $user_row=mysqli_fetch_array($result);
@@ -36,6 +36,7 @@
             #var_dump($role);
           if( $num_row > 0 ) {
             $_SESSION['id'] = $username;
+            $_SESSION['role'] = $role;
 
             if ($role == 2) 
             {

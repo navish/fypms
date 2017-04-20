@@ -6,7 +6,8 @@ $get_user = $_SESSION['id'];
 $result = mysqli_query($dbcon, "SELECT * FROM student WHERE regNo = '$get_user'") or die(mysqli_error());
 $user_row = mysqli_fetch_array($result);
 
-$regNo =  $user_row['regNo']; var_dump($regNo);
+$regNo =  $user_row['regNo']; 
+//var_dump($regNo);
 ?>
 
 
@@ -19,13 +20,13 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
       <!-- Profile -->
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-         <h4 class="w3-center">My Profile</h4>
-         <p class="w3-center"><img src="../images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+        <h4 class="w3-center">Student's Dashboard</h4>
+         <p class="w3-center"><img src="../images/avatar6.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
-         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> <?php echo $user_row['lName'].", ".$user_row['fName']." ".$user_row['mName'] ?> </p>
-         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i><?php echo $user_row['regNo'];  ?></p>
+         <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i><strong>Name:</strong> <?php echo $user_row['lName'].", ".$user_row['fName']." ".$user_row['mName'] ?> </p>
+         <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i><strong>Reg:</strong> <?php echo $user_row['regNo'];  ?></p>
 
-         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> <?php echo $user_row['course']; ?></p>
+         <!--p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> <?php echo $user_row['course']; ?></p -->
         </div>
       </div>
       <br>
@@ -129,12 +130,12 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
               <p><a
               <?php
 
-              $repsql = "SELECT report1 FROM progressreport WHERE projectId = (SELECT projectId FROM project WHERE grpNo = '$groupNo')";
+              $repsql = "SELECT sem1_progress FROM progressreport WHERE projectId = (SELECT projectId FROM project WHERE grpNo = '$groupNo')";
               $reportsql = mysqli_query($dbcon,$repsql) or die(mysqli_error($dbcon));
 
               $report = mysqli_fetch_array($reportsql);
 
-              $reportfile = $report['report1'];
+              $reportfile = $report['sem1_progress'];
               $fileAddress = "../".$reportfile;
               echo 'href="'.$fileAddress.'"';
 
@@ -143,9 +144,18 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
 
               
 
-              <p><a><button class="w3-btn-block w3-grey w3-left-align"><i class="fa fa-upload fa-fw w3-margin-right"></i> Upload New Report </button></a></p>
+              <p><a><button class="w3-btn-block w3-grey w3-left-align" onclick="uploadReport()"><i class="fa fa-upload fa-fw w3-margin-right"></i> Upload New Report </button></a></p>
           </div>
         </div>      
+      </div>
+      <br />
+        <div class="w3-card-2 w3-round w3-white w3-center">
+          <button class="w3-btn-block w3-blue w3-left-align" onclick="loadSupervisors();"> Supervisors </button>
+      </div>
+      <br />
+      
+      <div class="w3-card-2 w3-round w3-white w3-center">
+          <button class="w3-btn-block w3-blue w3-left-align" onclick="">Past Projects</button>
       </div>
       <br />
          
@@ -154,57 +164,24 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
     </div>
     
     <!-- Middle Column -->
-    <div class="w3-col m7">
+    <div class="w3-col m9">
     <div id="main">
       <div class="w3-row-padding">
         <div class="w3-col m12">
-          <div class="w3-card-2 w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h6 class="w3-opacity">ANNOUNCEMENTS</h6>
-            </div>
-          </div>
+          
         </div>
       </div>
       
       
-      <?php include '../announce.php'; ?>
+      <?php include '../functions/announce.php'; ?>
       
       </div>
       
     <!-- End Middle Column -->
     </div>
-    
-    <!-- Right Column -->
-    <div class="w3-col m2">
-      <div class="w3-card-2 w3-round w3-white w3-center">
-        <div class="w3-container">
-          <h4 ><strong> REMINDERS</strong> </h4>
-          
-          <p><strong>Presentation</strong></p>
-          <p>Friday, 17th at 0800hrs</p>
-          <p><button class="w3-btn w3-btn-block w3-theme-l4">Info</button></p>
-        </div>
-      </div>
-      <br>
-      
-      <div class="w3-card-2 w3-round w3-white w3-center">
-        
-          <a href="../supervisors.php"><button class="w3-btn-block w3-blue "> SUPERVISORS </button></a>
-       
-      </div>
-      <br>
-      
-      <div class="w3-card-2 w3-round w3-white w3-center">
-        <div class="w3-container">
-          <p>Past Projects</p>
-        </div>
-      </div>
-      <br>
       
      
-      
-    <!-- End Right Column -->
-    </div>
+
     
   <!-- End Grid -->
   </div>
@@ -212,27 +189,9 @@ $regNo =  $user_row['regNo']; var_dump($regNo);
 <!-- End Page Container -->
 </div>
 <br>
-<script>
-     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-       document.getElementById("main").innerHTML = this.responseText;
-      }
-    };
-function loadDoc() {
-  xhttp.open("GET", "../supervisor.php", true);
-    xhttp.send();
-  }
 
-function submitConcept() {
-  xhttp.open("GET", "conceptnote.php", true);
-    xhttp.send();
-  }
-function suggestGroup() {
-  xhttp.open("GET", "suggestgroup.php", true);
-    xhttp.send();
-  }
-  </script>
 <!-- Footer -->
+
+
 <?php include '..\footer.php'; ?>
 

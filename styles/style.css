@@ -16,9 +16,9 @@
 	background-color: white;
 	max-width: 340px;
 	margin: 0 auto;
-	position: relative;
 	top: 80px;
 	padding-bottom: 30px;
+	margin-bottom: 30px;
 	border-radius: 5px;
 	box-shadow: 0 5px 50px rgba(0,0,0,0.4);
 	text-align: center;

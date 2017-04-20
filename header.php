@@ -28,17 +28,15 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 
   <!-- RIGHT SIDE -->
     <a href="../logout.php" title="Logout"><button class="w3-bar-item w3-btn w3-small w3-hide-small w3-right w3-hover-white">Logout</button></a>
-  <button onclick="loadUser()" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-small w3-hover-white" title="My Account"><img src="../images/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></button>
+  <span onclick="loadUser()" class="w3-bar-item w3-button w3-hide-small w3-right w3-margin-right w3-hover-light-grey" title="My Account"><img src="../images/avatar2.png" class="w3-circle" style="height:30px;width:30px" alt="Account" title="My Account"></span>
  </div>
 </div>
 
 <!-- Navbar on small screens -->
 <div id="navDemo" class="w3-navblock w3-blue w3-large w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:51px">
 <ul class="w3-ul">
-  <li><a class="w3-padding-large" href="#"><i class="fa fa-globe"></i> Link 1</a></li>
-  <li><a class="w3-padding-large" href="#"><i class="fa fa-user"></i> Link 2</a></li>
-  <li><a class="w3-padding-large" href="#"><i class="fa fa-envelope"> </i>Link 3</a></li>
-  <li><a class="w3-padding-large" href="#"><i class="fa fa-user"></i> My Profile</a></li>
-  <li><a class="w3-padding-large" href="../logout.php"><i class="fa fa-user"></i> Logout</a></li>
+  <li onclick="loadUser()" class="w3-hover-white" title="My Account">My Account</li>
+  <li class="w3-hover-white"><a class="" href="../logout.php"><i class="fa fa-user"></i> Logout</a></li>
 </ul>
 </div>
+

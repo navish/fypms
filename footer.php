@@ -29,13 +29,15 @@ function openNav() {
 </script>
 <!-- Index Page -->
 <script>
-     var xhttp = new XMLHttpRequest();
+
+var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
        document.getElementById("main").innerHTML = this.responseText;
       }
     };
-function loadDoc() {
+    
+function loadSupervisors() {
   xhttp.open("GET", "../supervisor.php", true);
     xhttp.send();
   }
@@ -48,7 +50,43 @@ function suggestGroup() {
   xhttp.open("GET", "suggestgroup.php", true);
     xhttp.send();
   }
-  </script>
+function loadUser() {
+  xhttp.open("GET", "../functions/account-details.php", true);
+    xhttp.send();
+  }
+function uploadReport() { 
+  xhttp.open("GET", "submitreport.php", true);
+    xhttp.send();
+  }
+  function viewConcepts() {
+    xhttp.open("GET", "../functions/viewconcepts.php", true);
+    xhttp.send();
+  }
+ function supervisorConcepts() {
+    xhttp.open("GET", "../functions/supervisor-concepts.php", true);
+    xhttp.send();
+  }
+  function viewGroups() {
+    xhttp.open("GET", "../functions/groups.php", true);
+    xhttp.send();
+  }
+  function supervisorGroups() {
+    xhttp.open("GET", "../functions/supervisor-groups.php", true);
+    xhttp.send();
+  }
+  function viewReports() {
+    xhttp.open("GET", "../functions/viewreports.php", true);
+    xhttp.send();
+  }
+  function supervisorReports() {
+    xhttp.open("GET", "../functions/supervisor-reports.php", true);
+    xhttp.send();
+  }
+function supervisorReview() {
+    xhttp.open("GET", "../functions/sup-review-reports.php", true);
+    xhttp.send();
+  }
+</script>
 
 </body>
 </html>

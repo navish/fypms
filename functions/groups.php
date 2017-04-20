@@ -1,7 +1,7 @@
 
 <?php
 	
-	include 'dbcon.php';
+	include '../dbcon.php';
 ?>
 	<table class="w3-table w3-hoverable">
 	<thead>
