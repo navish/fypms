@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2017 at 06:28 PM
+-- Generation Time: Apr 20, 2017 at 06:32 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -49,22 +49,23 @@ INSERT INTO `announcement` (`id`, `title`, `description`, `time`) VALUES
 --
 
 CREATE TABLE `conceptnote` (
-  `conceptid` varchar(15) NOT NULL,
+  `conceptid` int(15) NOT NULL,
   `studentid` varchar(13) NOT NULL,
   `proposedtitle` varchar(100) NOT NULL,
-  `problemstatement` text NOT NULL,
-  `significance` varchar(120) NOT NULL,
   `expectedoutput` varchar(50) NOT NULL,
-  `approval` varchar(20) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `supervisor` int(20) NOT NULL,
+  `reccomend` varchar(16) NOT NULL,
+  `approval` varchar(20) DEFAULT NULL,
+  `time` timestamp NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `conceptnote`
 --
 
-INSERT INTO `conceptnote` (`conceptid`, `studentid`, `proposedtitle`, `problemstatement`, `significance`, `expectedoutput`, `approval`) VALUES
-('con1', '2014-04-02775', 'Makulaji', 'Watu hawali vizuri', 'Itawasaidia wanafunzi wa CoICT wale vizuri', 'Mobile App', 'waiting'),
-('con2', '2014-04-02765', 'Free Gaming', 'People are paying too much for games', 'People will spend less on games', 'Web and Mobile App', 'disapproved');
+INSERT INTO `conceptnote` (`conceptid`, `studentid`, `proposedtitle`, `expectedoutput`, `supervisor`, `reccomend`, `approval`, `time`) VALUES
+(1, '2014-04-02775', 'Makulaji', 'Mobile App', 1002, 'waiting', 'waiting', '2017-04-19 09:53:00'),
+(2, '2014-04-02765', 'Free Gaming', 'Web and Mobile App', 1001, 'disapproved', 'waiting', '2017-04-19 09:54:12');
 
 -- --------------------------------------------------------
 
@@ -95,7 +96,7 @@ INSERT INTO `grp` (`grpId`, `grpNo`, `approval`, `empId`) VALUES
 
 CREATE TABLE `login` (
   `user` varchar(13) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `passwrd` varchar(45) NOT NULL,
   `role` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -103,15 +104,16 @@ CREATE TABLE `login` (
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`user`, `password`, `role`) VALUES
+INSERT INTO `login` (`user`, `passwrd`, `role`) VALUES
 ('2014-04-02776', 'MNDEME', 2),
 ('2014-04-02753', 'DAVID', 2),
-('1001', 'COSMAS', 0),
-('1002', 'KOSMAS', 1),
+('1001', 'COSMAS', 1),
+('1002', 'Kosmas', 1),
 ('2014-04-02941', 'THOMAS', 2),
 ('2014-04-02765', 'GWASEKO', 2),
 ('2014-04-02775', 'NEMES', 2),
-('2014-04-02854', 'FAUSTINE', 2);
+('2014-04-02854', 'FAUSTINE', 2),
+('1000', 'mushi', 0);
 
 -- --------------------------------------------------------
 
@@ -160,19 +162,20 @@ CREATE TABLE `pastproject` (
 CREATE TABLE `progressreport` (
   `reportId` int(5) NOT NULL,
   `projectId` int(5) NOT NULL,
-  `report1` varchar(100) DEFAULT NULL,
-  `report2` varchar(100) DEFAULT NULL,
-  `report3` varchar(100) DEFAULT NULL,
-  `final` varchar(100) DEFAULT NULL
+  `review` varchar(100) NOT NULL,
+  `sem1_progress` varchar(100) DEFAULT NULL,
+  `sem1_final` varchar(100) DEFAULT NULL,
+  `sem2_progress` varchar(100) DEFAULT NULL,
+  `sem2_final` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `progressreport`
 --
 
-INSERT INTO `progressreport` (`reportId`, `projectId`, `report1`, `report2`, `report3`, `final`) VALUES
-(1, 1, 'reports/gr42.pdf', NULL, NULL, NULL),
-(2, 2, 'reports/gr5.pdf', NULL, NULL, NULL);
+INSERT INTO `progressreport` (`reportId`, `projectId`, `review`, `sem1_progress`, `sem1_final`, `sem2_progress`, `sem2_final`) VALUES
+(1, 1, '', 'reports/gr42.pdf', NULL, NULL, NULL),
+(2, 2, '../review-reports/alibaba-or-forty-thieves.pdf', '../finalsub-reports/Bunnies-From-the-Future-FKB-MG-Books.pdf', '../finalsub-reports/OUT-OF-PLACE-FKB-edition.pdf', '../finalsub-reports/multi-screen-consumer-whitepaper_research-studies.pdf', '../finalsub-reports/how to win friends and influence people.pdf');
 
 -- --------------------------------------------------------
 
@@ -218,12 +221,27 @@ CREATE TABLE `student` (
 
 INSERT INTO `student` (`regNo`, `fName`, `mName`, `lName`, `email`, `phoneNo`, `course`) VALUES
 ('2014-04-02753', 'Nancy', 'Victor', 'David', 'navish45@gmail.com', '0782120252', 'Bsc. in Computer Science'),
+('2014-04-02763', 'Daud ', NULL, 'Shanyangi', 'shaydavid46@gmail.com', '0719707543', 'Bsc. in Computer Science'),
 ('2014-04-02765', 'Jerrold', 'John', 'Gwaseko', 'jjgwaseko@gmail.com', '0717939395', 'Bsc. in Computer Science'),
 ('2014-04-02775', 'ANETH', NULL, 'NEMES ', 'mworiaaneth114@gmail.com	', '0753993170	', 'Bsc. in Computer Science'),
 ('2014-04-02776', 'Brian', 'Jude', 'Mndeme', 'pierremory1@gmail.com', '0716879797', 'Bsc. in Computer Science'),
+('2014-04-02801', 'Godson', NULL, 'Derick', 'godsonderick@gmail.com', '0652559657', 'Bsc. in Computer Science'),
 ('2014-04-02854', 'Teodori', '', 'FAUSTINE', 'theodoryf@gmail.com	', '0653974024	', 'Bsc. in Computer Science'),
 ('2014-04-02862', 'George', NULL, 'Elia', 'georgemarx90@gmail.com', '0713220532', 'Bsc. in Computer Science'),
 ('2014-04-02941', 'Frank', NULL, 'Thomas', 'frankthomaseng@gmail.com', '0756618619', 'Bsc with Computer Science');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suggestedgroup`
+--
+
+CREATE TABLE `suggestedgroup` (
+  `sugId` int(11) NOT NULL,
+  `fMember` varchar(13) NOT NULL,
+  `sMember` varchar(13) NOT NULL,
+  `tMember` varchar(13) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -247,7 +265,7 @@ CREATE TABLE `supervisor` (
 
 INSERT INTO `supervisor` (`empId`, `fName`, `lName`, `email`, `phoneNo`, `expertise`, `privilege`) VALUES
 (1001, 'Cosmas', 'Mushi', 'joseph.cosmas@udsm.ac.tz', '0714141414', 'Web Programming', '2'),
-(1002, 'Kosmas', 'Kapis', 'k.kapis@udsm.ac.tz', '0754545454', 'Internet Security', '1');
+(1002, 'Collins', 'Victor', 'k.kapis@udsm.ac.tz', '0754545454', 'Internet Security', '1');
 
 --
 -- Indexes for dumped tables
@@ -263,7 +281,8 @@ ALTER TABLE `announcement`
 -- Indexes for table `conceptnote`
 --
 ALTER TABLE `conceptnote`
-  ADD PRIMARY KEY (`conceptid`);
+  ADD PRIMARY KEY (`conceptid`),
+  ADD KEY `supervisor` (`supervisor`);
 
 --
 -- Indexes for table `grp`
@@ -314,6 +333,12 @@ ALTER TABLE `student`
   ADD UNIQUE KEY `regNo` (`regNo`);
 
 --
+-- Indexes for table `suggestedgroup`
+--
+ALTER TABLE `suggestedgroup`
+  ADD UNIQUE KEY `suggestedGroup` (`sugId`);
+
+--
 -- Indexes for table `supervisor`
 --
 ALTER TABLE `supervisor`
@@ -330,6 +355,11 @@ ALTER TABLE `supervisor`
 ALTER TABLE `announcement`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
+-- AUTO_INCREMENT for table `conceptnote`
+--
+ALTER TABLE `conceptnote`
+  MODIFY `conceptid` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `pastproject`
 --
 ALTER TABLE `pastproject`
@@ -345,8 +375,19 @@ ALTER TABLE `progressreport`
 ALTER TABLE `project`
   MODIFY `projectId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `suggestedgroup`
+--
+ALTER TABLE `suggestedgroup`
+  MODIFY `sugId` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `conceptnote`
+--
+ALTER TABLE `conceptnote`
+  ADD CONSTRAINT `conceptnote_ibfk_1` FOREIGN KEY (`supervisor`) REFERENCES `supervisor` (`empId`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `members`

@@ -21,15 +21,15 @@
     <div class="w3-col m12">
       <div class="w3-card-2 w3-white">  
         <div class="w3-container w3-padding"> 
-            <form action="" method="GET" class="" >
+            <form action="" method="POST" class="" >
            
               <h4>Enter the registration numbers in the fields below</h4>
 
-              <div class="w3-row"><div class="w3-col m6"><input type="text" name="fMember" class="w3-input" placeholder="First Member" oninput="showMember(this.value)"></div>
+              <div class="w3-row"><div class="w3-col m6"><input type="text" name="fMember" class="w3-input" placeholder="First Member" oninput="showMember(this.value)" required></div>
               <div class="w3-col m6"><span id="member1"></span></div>
               </div>
               <br />
-              <div class="w3-row"><div class="w3-col m6"><input type="text" name="sMember" class="w3-input" placeholder="Second Member" oninput="showMember2(this.value)"></div>
+              <div class="w3-row"><div class="w3-col m6"><input type="text" name="sMember" class="w3-input" placeholder="Second Member" oninput="showMember2(this.value)" required="true"></div>
               <div class="w3-col m6"><span id="member2"></span></div>
               </div>
                <br />
@@ -39,25 +39,44 @@
                <br /-->
 
               <br />
-              <button type="submit" name="submit" class="w3-padding w3-btn-block w3-blue">Submit</button>
+              <button type="submit" name="submit" onclick="suggestGroup()" class="w3-padding w3-btn-block w3-blue">Submit</button>
             </form>
           </div>
         </div>
     </div>
   </div>
-<script>
 
-<?php
 
-if(isset($_POST['submit'])) 
+<!-- ?php
+
+if (isset($_POST['submit'])) 
 {
   $fMember = $_POST['fMember'];
   $sMember = $_POST['sMember'];
 
-  mysqli_query("INSERT into suggestedgroup(fMember, sMember, lMember) VALUES '$studentId','$sMember','$lMember'")
-}
-?>
+  $suggestion = mysqli_query($dbcon, "INSERT into suggestedgroup(fMember, sMember, tMember) VALUES ('$fMember','$sMember','$studentId') ") or die(mysqli_error($dbcon));
+  if ($suggestion) {
+    ?>
+<script> alert("Your grou suggestion has been recorded"); </script>
+  <?php  /*} else { ?>
+<script> alert("Sorry, your suggestion failed"); </script>
+<?php
+  }
+}*/
+?> -->
 
+<script>
+function suggestGroup() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("main").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "submitgroup.php", true);
+        xmlhttp.send();
+    }
+}
 function showMember(str) {
     if (str.length == 0) { 
         document.getElementById("member1").innerHTML = "";

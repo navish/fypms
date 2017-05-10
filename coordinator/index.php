@@ -18,10 +18,10 @@ $user_row = mysqli_fetch_array($result);
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
          <h4 class="w3-center">Coordinator's Dashboard</h4>
-         <p class="w3-center"><img src="../images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <!--p class="w3-center"><img src="../images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p -->
          <hr>
-         <p><i class="fa fa-person fa-fw w3-margin-right w3-text-theme"></i> Name: <?php echo $user_row['fName']." ".$user_row['lName']; ?></p>
-         <!--p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> <?php //echo "ID: ".$user_row['empId']; ?></p -->
+         <p><!--i class="fa fa-person fa-fw w3-margin-right w3-text-theme"></i--> Name: <?php echo "Cosmas Mushi" ?></p>
+         <!-- p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> <?php //echo "ID: ".$user_row['empId']; ?></p -->
         </div>
       </div>
       <br>

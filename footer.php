@@ -38,7 +38,7 @@ var xhttp = new XMLHttpRequest();
     };
     
 function loadSupervisors() {
-  xhttp.open("GET", "../supervisor.php", true);
+  xhttp.open("GET", "../functions/supervisor.php", true);
     xhttp.send();
   }
 
@@ -76,6 +76,10 @@ function uploadReport() {
   }
   function viewReports() {
     xhttp.open("GET", "../functions/viewreports.php", true);
+    xhttp.send();
+  }
+  function studentReports() {
+    xhttp.open("GET", "../functions/student-reports.php", true);
     xhttp.send();
   }
   function supervisorReports() {

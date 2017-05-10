@@ -1,38 +1,4 @@
-<?php include '../header.php'; 
-//$get_user = $_GET['user'];
-$get_user = $_SESSION['id'];
-
-#$sql = "SELECT * FROM student WHERE regNo = $get_user";
-$result = mysqli_query($dbcon, "SELECT * FROM student WHERE regNo = '$get_user'") or die(mysqli_error());
-$user_row = mysqli_fetch_array($result);
-
-$regNo =  $user_row['regNo']; 
-//var_dump($regNo);
-?>
-
-
-<!-- Page Container -->
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
-  <!-- The Grid -->
-  <div class="w3-row">
-    <!-- Left Column -->
-    <div class="w3-col m3">
-      <!-- Profile -->
-      <div class="w3-card-2 w3-round w3-white">
-        <div class="w3-container">
-        <h4 class="w3-center">Student's Dashboard</h4>
-         <!--p class="w3-center"><img src="../images/avatar6.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p-->
-         <hr>
-         <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i><strong>Name:</strong> <?php echo $user_row['lName'].", ".$user_row['fName']." ".$user_row['mName'] ?> </p>
-         <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i><strong>Reg:</strong> <?php echo $user_row['regNo'];  ?></p>
-
-         <!--p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> <?php echo $user_row['course']; ?></p -->
-        </div>
-      </div>
-      <br />
-      
-      <!-- Accordion -->
-      <div class="w3-card-2 w3-round">
+<div class="w3-card-2 w3-round">
         <div class="w3-white">
           <button onclick="myFunction('Demo1')" class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-file fa-fw w3-margin-right"></i>Concept Note</button>
           <div id="Demo1" class="w3-hide w3-container">
@@ -148,38 +114,3 @@ $regNo =  $user_row['regNo'];
       <br />
          
     
-    <!-- End Left Column -->
-    </div>
-    
-    <!-- Middle Column -->
-    <div class="w3-col m9">
-    <div id="main">
-      <div class="w3-row-padding">
-        <div class="w3-col m12">
-          
-        </div>
-      </div>
-      
-      
-      <?php include '../functions/announce.php'; ?>
-      
-      </div>
-      
-    <!-- End Middle Column -->
-    </div>
-      
-     
-
-    
-  <!-- End Grid -->
-  </div>
-  
-<!-- End Page Container -->
-</div>
-<br>
-
-<!-- Footer -->
-
-
-<?php include '..\footer.php'; ?>
-

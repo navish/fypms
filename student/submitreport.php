@@ -10,7 +10,7 @@
         <div class="w3-col m12">
           <div class="w3-card-2 w3-white">
             <div class="w3-container w3-padding">
-              <h3 class="w3-center">SUBMIT CONCEPT NOTE</h3>
+              <h3 class="w3-center">SUBMIT REPORT</h3>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
   $projectId = $projectArray['projectId'];
 
   if ($report_type == "review") {
-  	include '../review-reports.php';
+  	include '../functions/review-reports.php';
 
   	$sql = "UPDATE `progressreport` SET review = '$target_file' WHERE projectId = $projectId";
   	$insert = mysqli_query($dbcon, $sql);
@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
   } 
   else 
   {
-  	include '../finalsub-reports.php';
+  	include '../functions/finalsub-reports.php';
 
   	if ($report_type == "semester1-progress") {
   		$sql = "UPDATE `progressreport` SET sem1_progress = '$target_file' WHERE projectId = '$projectId'";
