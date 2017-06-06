@@ -29,6 +29,7 @@
         $pass = $_POST['password'];
         $password = md5($pass);
         
+        
         $query = "SELECT * FROM login WHERE user='$username' AND passwrd='$password'";
         $result = mysqli_query($dbcon,$query)or die(mysqli_error());
         $num_row = mysqli_num_rows($result);

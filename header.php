@@ -3,8 +3,8 @@
 <head>
 		<title>CoICT FYPMS</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-			<link rel="stylesheet" type="text/css" href="../styles/w3.css">
+      <script type="text/javascript" src="../styles/jquery.min.js"></script>
+  		<link rel="stylesheet" type="text/css" href="../styles/w3.css">
 			<link rel="stylesheet" type="text/css" href="../styles/style.css">
 			<link rel="stylesheet" type="text/css" href="../styles/w3-theme-blue-grey.css">
 			<link rel="stylesheet" href="../fonts/font-awesome.min.css">
@@ -12,6 +12,27 @@
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
+<script>
+$(function(){
+  // add multiple select / deselect functionality
+  $("#selectall").click(function () {
+      $('.archive').attr('checked', this.checked);
+  });
+
+  // if all checkbox are selected, check the selectall checkbox
+  // and viceversa
+  $(".archive").click(function(){
+
+    if($(".archive").length == $(".archive:checked").length) {
+      $("#selectall").attr("checked", "checked");
+    } else {
+      $("#selectall").removeAttr("checked");
+    }
+
+  });
+});
+
+  </script>
 
 </head>
 <?php 
@@ -24,7 +45,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 <div class="w3-top">
  <div class="w3-bar w3-blue w3-left-align w3-large w3-padding">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-opennav w3-right w3-padding-small w3-hover-white w3-large " href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-  <a href="index.php" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i></a>
+  <a href="../index.php" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i></a>
 
   <!-- RIGHT SIDE -->
     <a href="../logout.php" title="Logout"><button class="w3-bar-item w3-btn w3-small w3-hide-small w3-right w3-hover-white">Logout</button></a>

@@ -138,12 +138,12 @@ $regNo =  $user_row['regNo'];
       </div>
       <br />
         <div class="w3-card-2 w3-round w3-white w3-center">
-          <button class="w3-btn-block w3-blue w3-left-align" onclick="loadSupervisors();"> Supervisors </button>
+          <button class="w3-btn-block w3-blue w3-left-align" onclick="loadSupervisors();"><i class="fa fa-users fa-fw w3-margin-right"></i> Supervisors </button>
       </div>
       <br />
       
       <div class="w3-card-2 w3-round w3-white w3-center">
-          <button class="w3-btn-block w3-blue w3-left-align" onclick="">Past Projects</button>
+          <button class="w3-btn-block w3-blue w3-left-align" onclick=""><i class="fa fa-file-text fa-fw w3-margin-right"></i>Past Projects</button>
       </div>
       <br />
          

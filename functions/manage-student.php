@@ -10,6 +10,7 @@
 <table class="w3-table w3-hoverable" border="0">
 	<thead>
 	  <tr class="w3-light-grey">
+	  	<th>Select</th>
 	    <th>Reg. No.</th>
 	    <th>Name</th>
 	    <th>Group</th>
@@ -23,6 +24,7 @@
 	?>
 
 	<tr>
+	  <td><input class="w3-check" type="checkbox" name="<?php echo $user_row['regNo'];  ?>" ></td>
 
 	  <td><?php echo $user_row['regNo'];  ?></td>
 	  <td><?php echo $user_row['lName']." ".$user_row['fName']." ".$user_row['mName']; ?></td>

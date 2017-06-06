@@ -18,32 +18,19 @@
     <div class="w3-col m12">
       <div class="w3-card-2 w3-white">  
         <div class="w3-container w3-padding"> 
-            <form action="upload.php" method="post" enctype="multipart/form-data" >
+            <form action="uploadconcept.php" method="post" enctype="multipart/form-data" >
               <br />
-                <input type="text" name="title" class="w3-input w3-border" placeholder="Proposed Title" >
+               <input type="text" name="title" class="w3-input" placeholder="Proposed Title" >
                 <br />
-                <select class="w3-select w3-border" name="propSupervisor" >
-                <option value="" disabled selected>Expected Output</option>
-                <option value="webapp">Web App</option>
-                <option value="mobileapp">Mobile App</option>
-              </select>
-                
-               <input type="file" name="file" class="w3-input" >
-               <br />
+                 
+                <input type="text" name="exout" class="w3-input" placeholder="Expected Output eg. Mobile app, Web app etc" >
+                <br />
 
-              <select class="w3-select w3-border" name="propSupervisor" disabled="true">
-                <option value="" disabled selected>Propose A Supervisor</option>
-                <?php
+                <input type="text" name="propsup" class="w3-input" placeholder="Propose A Supervisor" >
+                <br />
 
-
-                ?>
-
-
-                <option value="1">Supervisor 1</option>
-                <option value="2">Supervisor 2</option>
-                <option value="3">Supervisor 3</option>
-              </select>
-              <br />
+              <input type="file" name="filetoupload" class="w3-input" >
+              <br/>
               <br />
               <button type="submit" value="upload" class="w3-padding w3-btn-block w3-blue">Submit Concept Note</button>
             
