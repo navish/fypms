@@ -1,12 +1,22 @@
 
-<?php
-  include '../dbcon.php';
-  session_start();
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
 
-  $studentId = $_SESSION['id'];
-?>
-
-      <div class="w3-row-padding">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <?php include 'stu-nav.php';     ?>
+      <br />
+    </div>    
+    <!-- End Left Column -->
+    
+    
+    <!-- Middle Column -->
+    <div class="w3-col m9">
+      <div id="main">
+                   
+        <div class="w3-row-padding">
         <div class="w3-col m12">
           <div class="w3-card-2 w3-white">
             <div class="w3-container w3-padding">
@@ -21,7 +31,7 @@
     <div class="w3-col m12">
       <div class="w3-card-2 w3-white">  
         <div class="w3-container w3-padding"> 
-            <form action="" method="POST" class="" >
+            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="" >
            
               <h4>Enter the registration numbers in the fields below</h4>
 
@@ -39,31 +49,47 @@
                <br /-->
 
               <br />
-              <button type="submit" name="submit" onclick="suggestGroup()" class="w3-padding w3-btn-block w3-blue">Submit</button>
+              <button type="submit" name="submit"  class="w3-padding w3-btn w3-blue">Submit Suggestion</button>
             </form>
+             <br />
+            <?php
+
+              if (isset($_POST['submit'])) 
+              {
+                $fMember = $_POST['fMember'];
+                $sMember = $_POST['sMember'];
+
+                $suggestion = mysqli_query($dbcon, "INSERT into suggestedgroup(fMember, sMember, tMember, approval) VALUES ('$fMember','$sMember','$regNo', 'waiting') ") or die(mysqli_error($dbcon));
+                if ($suggestion) {
+                  ?>
+              <script> alert("Your grou suggestion has been recorded"); </script>
+                <?php  } else { ?>
+              <script> alert("Sorry, your suggestion failed"); </script>
+              <?php
+                }
+              }
+          ?>
+
           </div>
         </div>
     </div>
   </div>
+      </div>
+    </div>
+    <!-- End Middle Column -->
+  </div> 
+  <!-- End Grid -->
+</div>  
+  
+<!-- End Page Container -->
 
 
-<!-- ?php
+<br>
 
-if (isset($_POST['submit'])) 
-{
-  $fMember = $_POST['fMember'];
-  $sMember = $_POST['sMember'];
+<!-- Footer -->
 
-  $suggestion = mysqli_query($dbcon, "INSERT into suggestedgroup(fMember, sMember, tMember) VALUES ('$fMember','$sMember','$studentId') ") or die(mysqli_error($dbcon));
-  if ($suggestion) {
-    ?>
-<script> alert("Your grou suggestion has been recorded"); </script>
-  <?php  /*} else { ?>
-<script> alert("Sorry, your suggestion failed"); </script>
-<?php
-  }
-}*/
-?> -->
+
+<?php include '..\footer.php'; ?>
 
 <script>
 function suggestGroup() {

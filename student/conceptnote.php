@@ -1,11 +1,3 @@
-<?php include '../header.php'; 
-  $get_user = $_SESSION['id'];
-
-  $result = mysqli_query($dbcon, "SELECT * FROM student WHERE regNo = '$get_user'") or die(mysqli_error());
-  $user_row = mysqli_fetch_array($result);
-
-  $regNo =  $user_row['regNo']; 
-?>
 
 
 <!-- Page Container -->
@@ -41,7 +33,7 @@
           <div class="w3-card-2 w3-white">  
             <div class="w3-container w3-padding"> 
 
-            <form action=""<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"" method="POST" enctype="multipart/form-data" >
+            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data" >
               <br />
 
               <div class="w3-row">

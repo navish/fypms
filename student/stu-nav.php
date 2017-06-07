@@ -1,3 +1,12 @@
+<?php include '../header.php'; 
+  $get_user = $_SESSION['id'];
+
+  $result = mysqli_query($dbcon, "SELECT * FROM student WHERE regNo = '$get_user'") or die(mysqli_error());
+  $user_row = mysqli_fetch_array($result);
+
+  $regNo =  $user_row['regNo']; 
+?>
+
 <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
         <h4 class="w3-center">Student's Dashboard</h4>
@@ -86,7 +95,7 @@
             } 
             else { ?>
               <br />
-              <button onclick="suggestGroup()" class="w3-btn w3-btn-block w3-grey">Suggest Group</button>
+              <a href="suggestgroup.php"><button class="w3-btn w3-btn-block w3-grey">Suggest Group</button></a>
               <br />
             <?php } 
 

@@ -1,13 +1,10 @@
 <?php include '../header.php'; 
-//$get_user = $_GET['user'];
-$get_user = $_SESSION['id'];
+  $get_user = $_SESSION['id'];
 
-#$sql = "SELECT * FROM student WHERE regNo = $get_user";
-$result = mysqli_query($dbcon, "SELECT * FROM student WHERE regNo = '$get_user'") or die(mysqli_error());
-$user_row = mysqli_fetch_array($result);
+  $result = mysqli_query($dbcon, "SELECT * FROM student WHERE regNo = '$get_user'") or die(mysqli_error());
+  $user_row = mysqli_fetch_array($result);
 
-$regNo =  $user_row['regNo']; 
-//var_dump($regNo);
+  $regNo =  $user_row['regNo']; 
 ?>
 
 
@@ -15,20 +12,14 @@ $regNo =  $user_row['regNo'];
 <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
   <!-- The Grid -->
   <div class="w3-row">
+
     <!-- Left Column -->
     <div class="w3-col m3">
-      <!-- Profile -->
-      
-      
-      <!-- Accordion -->
-      <?php
-      include 'stu-nav.php';
-    ?>
+      <?php include 'stu-nav.php';     ?>
       <br />
-         
-    
+    </div>    
     <!-- End Left Column -->
-    </div>
+    
     
     <!-- Middle Column -->
     <div class="w3-col m9">
@@ -43,14 +34,13 @@ $regNo =  $user_row['regNo'];
       </div>
     </div>
     <!-- End Middle Column -->
-     
-
-    
+  </div> 
   <!-- End Grid -->
-  </div>
+</div>  
   
 <!-- End Page Container -->
-</div>
+
+
 <br>
 
 <!-- Footer -->
