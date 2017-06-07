@@ -3,6 +3,10 @@
 	
 	include '../dbcon.php';
 ?>
+
+<div class="w3-center"> 
+	<h3>VIEW GROUPS</h3>
+	</div>
 	<table class="w3-table w3-hoverable">
 	<thead>
 	  <tr class="w3-light-grey">

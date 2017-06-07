@@ -78,7 +78,7 @@
 </div>
 <br>
 
-<script type="">
+<script>
   var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -103,37 +103,7 @@ function loadDoc() {
     xhttp.send();
   }
 
-  function viewConcepts() {
-    xhttp.open("GET", "viewconcepts.php", true);
-    xhttp.send();
-  }
 
-  function viewGroups() {
-    xhttp.open("GET", "../functions/groups.php", true);
-    xhttp.send();
-  }
-  function viewReports() {
-    xhttp.open("GET", "../functions/viewreports.php", true);
-    xhttp.send();
-  }
-   function manageSupervisors() {
-    xhttp.open("GET", "../functions/manage-supervisor.php", true);
-    xhttp.send();
-  }
-  function uploadCSVstudent() {
-    xhttp.open("GET", "../functions/uploadcsv-student.php", true);
-    xhttp.send();
-  }
-  function uploadCSVsupervisor() {
-    xhttp.open("GET", "../functions/uploadcsv-supervisor.php", true);
-    xhttp.send();
-  }
-
-
-function manageStudents() {
-    xhttp.open("GET", "../functions/manage-student.php", true);
-    xhttp.send();
-  }
 </script>
 <!-- Footer -->
 <?php

@@ -5,7 +5,7 @@ $uploadOk = 1;
 $errMessage = "";
 $reportFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-// Check if image file is a actual image or fake image
+// Check if file is a document or pdf
 if(isset($_POST["submit"])) {
 
 } else {

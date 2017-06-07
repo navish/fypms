@@ -86,8 +86,36 @@ function uploadReport() {
     xhttp.open("GET", "../functions/supervisor-reports.php", true);
     xhttp.send();
   }
-function supervisorReview() {
+  function supervisorReview() {
     xhttp.open("GET", "../functions/sup-review-reports.php", true);
+    xhttp.send();
+  }
+  function viewConcepts() {
+    xhttp.open("GET", "viewconcepts.php", true);
+    xhttp.send();
+  }
+  function viewGroups() {
+    xhttp.open("GET", "../functions/groups.php", true);
+    xhttp.send();
+  }
+  function viewReports() {
+    xhttp.open("GET", "../functions/viewreports.php", true);
+    xhttp.send();
+  }
+   function manageSupervisors() {
+    xhttp.open("GET", "../functions/manage-supervisor.php", true);
+    xhttp.send();
+  }
+  function uploadCSVstudent() {
+    xhttp.open("GET", "functions/uploadcsv-student.php", true);
+    xhttp.send();
+  }
+  function uploadCSVsupervisor() {
+    xhttp.open("GET", "functions/uploadcsv-supervisor.php", true);
+    xhttp.send();
+  }
+  function manageStudents() {
+    xhttp.open("GET", "../functions/manage-student.php", true);
     xhttp.send();
   }
 

@@ -1,8 +1,8 @@
 <div class="w3-card-2 w3-round w3-white">
-        <div class="w3-container">
-         <h4 class="w3-center">Coordinator's Dashboard</h4>
+        <div class="w3-center w3-container">
+         <h4 class="">Coordinator's Dashboard</h4>
          <hr>
-         <p><!--i class="fa fa-person fa-fw w3-margin-right w3-text-theme"></i--> Name: <?php echo "Cosmas Mushi" ?></p>
+         <p><i class="fa fa-person fa-fw "></i> Name: <?php echo "Cosmas Mushi" ?></p>
          <!-- p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> <?php //echo "ID: ".$user_row['empId']; ?></p -->
         </div>
       </div>
@@ -55,20 +55,16 @@
         <br />
         <div class="w3-card-2 w3-round">
         <div class="w3-white">  
-         
-            <?php 
-            $sqlgrp = mysqli_query($dbcon, "SELECT * FROM `suggestedgroup` WHERE approval='waiting'") or die(mysqli_error($dbcon));
-            $group_row = mysqli_fetch_array($sqlgrp);
-            $num_row = mysqli_num_rows($sqlgrp);
-
-            if ($num_row > 0) { ?>
-              <button onclick="" class="w3-btn w3-btn-block w3-blue w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> Approve Groups</button> 
-              <br />   
-            <?php } ?>
-            
+              <a href="approve-groups.php"><button  class="w3-btn w3-btn-block w3-blue w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> Approve Groups</button></a>            
         </div>
       </div>
-      
+      <br />
+      <div class="w3-card-2 w3-round">
+        <div class="w3-white">
+               <a href="assign-supervisor.php"><button class="w3-btn w3-btn-block w3-blue w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> Assign Supervisors</button></a>
+        </div>
+      </div>
+      <br /> 
 
       <div class="w3-card-2 w3-round">
         <div class="w3-white">

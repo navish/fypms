@@ -1,4 +1,17 @@
-<div class="w3-card-2 w3-round">
+<div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+        <h4 class="w3-center">Student's Dashboard</h4>
+         <!--p class="w3-center"><img src="../images/avatar6.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p-->
+         <hr>
+         <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i><strong>Name:</strong> <?php echo $user_row['lName'].", ".$user_row['fName']." ".$user_row['mName'] ?> </p>
+         <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i><strong>Reg:</strong> <?php echo $user_row['regNo'];  ?></p>
+
+         <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i><strong>Course:</strong>  <?php echo $user_row['course']; ?></p >
+        </div>
+      </div>
+      <br />
+
+      <div class="w3-card-2 w3-round">
         <div class="w3-white">
           <button onclick="myFunction('Demo1')" class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-file fa-fw w3-margin-right"></i>Concept Note</button>
           <div id="Demo1" class="w3-hide w3-container">
@@ -22,7 +35,7 @@
                   echo "It has been REJECTED";
                 ?>
                   <br />
-                  <button class="w3-btn w3-btn-block w3-grey" onclick="submitConcept()">Submit Another Concept</button>
+                  <a href="conceptnote.php"><button class="w3-btn w3-btn-block w3-grey" >Submit Another Concept</button></a>
                   <br 
               <?php
                  }
@@ -34,7 +47,7 @@
 
             } else {  ?>
               <br />
-              <button class="w3-btn w3-btn-block w3-grey" onclick="submitConcept()">Submit Concept</button>
+              <a href="conceptnote.php"><button class="w3-btn w3-btn-block w3-grey" >Submit Concept</button></a>
               <br />
             <?php } 
               
@@ -76,9 +89,6 @@
               <button onclick="suggestGroup()" class="w3-btn w3-btn-block w3-grey">Suggest Group</button>
               <br />
             <?php } 
-            
-           
-
 
 
             ?>

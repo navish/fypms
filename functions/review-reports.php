@@ -5,14 +5,14 @@ $uploadOk = 1;
 $errMessage = "";
 $reportFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-// Check if image file is a actual image or fake image
+// Check file is doc or pdf
 if(isset($_POST["submit"])) {
 
 } else {
     exit();
 }
 // Allow certain file formats
-if($reportFileType != "doc" && $reportFileType != "docx") {
+if($reportFileType != "doc" && $reportFileType != "docx" && $reportFileType != "pdf") {
     $errMessage += "Sorry, only Word Document files are allowed. <br /> ";
     $uploadOk = 0;
 }
