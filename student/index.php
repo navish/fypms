@@ -1,11 +1,3 @@
-<?php include '../header.php'; 
-  $get_user = $_SESSION['id'];
-
-  $result = mysqli_query($dbcon, "SELECT * FROM student WHERE regNo = '$get_user'") or die(mysqli_error());
-  $user_row = mysqli_fetch_array($result);
-
-  $regNo =  $user_row['regNo']; 
-?>
 
 
 <!-- Page Container -->
