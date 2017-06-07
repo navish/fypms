@@ -32,7 +32,5 @@ if ($uploadOk != 0) {
     }
    
 // if everything is ok, try to upload file
-} /*else {
-    echo "Sorry, your file was not uploaded.";
-}*/
+} 
 ?>

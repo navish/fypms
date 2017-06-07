@@ -14,15 +14,13 @@ if(isset($_POST["submit"])) {
 // Check if concept file is a document
     if($conceptFileType != "doc" && $conceptFileType != "docx" && $conceptFileType != "pdf") {
         $errMessage += "Sorry, only Word Document and PDF files are allowed. <br /> ";
-        //$uploadOk = 0;
-        echo $errMessage;
+        $uploadOk = 0;
     }
     
 // Check if file already exists
     if (file_exists($target_file)) {
         $errMessage += "Sorry, a file with a similar name already exists. <br />";
         $uploadOk = 0;
-        echo $errMessage;
     }
 
 // Check if $uploadOk is set to 0 by an error
@@ -37,9 +35,5 @@ if(isset($_POST["submit"])) {
         
 
     } 
-    /*else {
-
-        echo "Sorry, your file was not uploaded.";
-        
-    }*/
+    
 ?>

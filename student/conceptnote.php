@@ -62,13 +62,13 @@
                 <div class="w3-col m4">Propose A Supervisor </div>
                 <div class="w3-col m8">
                   <select class="w3-select" name="propsup">
+                  <option value="" >Propose A Supervisor</option>
                     <?php
                       $result = mysqli_query($dbcon, "SELECT * FROM supervisor") or die(mysql_error());
                       while ($user_row = mysqli_fetch_array($result)) {
                       $supervisor = $user_row['empId'];
                       $expertise = $user_row['expertise'];
-
-                      echo $user_row['fName']." ".$user_row['lName']; 
+ 
                       echo "<option value=".$supervisor.">".$user_row['fName']." ".$user_row['lName']."</option>"; 
                     } ?>
                   </select>
@@ -86,44 +86,44 @@
                 <button type="submit" name="submit" class="w3-padding w3-btn w3-blue">Submit Concept Note</button>
               </div>            
             </form>
+
+            <?php
+              if (isset($_POST['submit'])) {
+
+                $propsupervisor = $_POST['propsup'];
+                $proptitle = $_POST['title'];
+                $expectedoutput = $_POST['exout'];
+
+                  include 'upload.php';
+
+                  $sql = "INSERT INTO conceptnote(studentid, proposedtitle, expectedoutput, conceptfile, supervisor, reccomended, approval, time) VALUES ('$regNo', '$proptitle', '$expectedoutput', '$target_file','$propsupervisor','no','waiting',now())";
+
+                  $insert = mysqli_query($dbcon, $sql);
+
+                if (($insert == true) && ($uploadOk == 1)) { ?>
+                  <script>
+                  alert('Concept Note Successfully Submitted.');
+                 window.location = 'index.php';
+                 //' ' " "
+                  </script>
+                <?php 
+                } else {  ?>
+                  
+                  <script>
+                  alert('Something went wrong your Concept Note was not submitted.');
+                window.location = 'conceptnote.php';
+                  </script>    
+                <?php
+               
+                    }
+
+              } //isset Submit
+
+            ?>
             </div>
           </div>
         </div>
       </div>
-<?php
-if (isset($_POST['submit'])) {
-
-  $propsupervisor = $_POST['propsup'];
-  $proptitle = $_POST['title'];
-  $concept = $_POST['concept'];
-  $proptitle = $_POST['title'];
-
-    include '../upload.php';
-
-    $sql = "UPDATE `conceptnote` SET conceptfile = '$target_file' WHERE projectId = $projectId";
-    $insert = mysqli_query($dbcon, $sql);
-
-  if (($insert = true) && ($uploadOk == 1)) { ?>
-    <script>
-    alert('Report Successfully Submitted.');
-   window.location = 'index.php';
-    </script>
-  <?php 
-  } else { var_dump($insert); var_dump($uploadOk); ?>
-    
-    <script>
-    alert('Something went wrong your report was not submitted.');
-  window.location = 'index.php';
-    </script>    
-  <?php
- 
-      }
-
-    } //isset Submit
-
-  ?>
-<script type="text/javascript">
-        function readURL(inp
 
       </div>
     </div>

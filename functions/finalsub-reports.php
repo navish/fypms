@@ -32,8 +32,5 @@ if ($uploadOk != 0) {
         $errMessage += "Sorry, there was an error uploading your file. <br />";
     }
 
-} /*else {
-    echo "Sorry, your file was not uploaded.";
-    
-}*/
+} 
 ?>
