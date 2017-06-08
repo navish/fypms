@@ -19,9 +19,16 @@
     <!-- Middle Column -->
     <div class="w3-col m9">
     <div id="main">
+
       <div class="w3-row-padding">
         <div class="w3-col m12">     
-          <?php include '../functions/announce.php'; ?>
+          <?php include 'sup-dash.php'; ?>
+       </div>
+      </div> 
+<br /><br />
+      <div class="w3-row-padding">
+        <div class="w3-col m12">     
+          <?php include '../functions/announcements.php'; ?>
        </div>
       </div> 
       </div>

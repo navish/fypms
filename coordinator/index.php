@@ -24,13 +24,22 @@ $user_row = mysqli_fetch_array($result);
     
     <!-- Middle Column -->
     <div class="w3-col m9">
-    
-      
-      
       <div id="main">
       
-      <?php include '../functions/announce.php'; ?>
-      
+        <div class="w3-row-padding">
+          <div class="w3-col m12">    
+            <?php include 'announce.php'; ?> 
+            
+         </div>
+        </div> 
+    <br />
+        <div class="w3-row-padding">
+          <div class="w3-col m12">     
+            <?php include 'coord-dash.php'; ?>
+         </div>
+        </div> 
+        </div>
+        
       </div>
       
     <!-- End Middle Column -->

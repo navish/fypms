@@ -11,8 +11,8 @@
          <h4 class="w3-center">Supervisor's Dashboard</h4>
          
          <hr>
-         <p class="w3-center"><!--i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i--> Name: <?php echo $user_row['fName']." ".$user_row['lName'] ?> </p>
-         <!--p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i><?php echo $user_row['empId']; ?></p-->
+         <p class="w3-center"> Name: <?php echo $user_row['fName']." ".$user_row['lName'] ?> </p>
+         
         </div>
       </div>
       <br />
@@ -32,16 +32,16 @@
 
             <?php 
             #$conceptsql = "SELECT * FROM conceptnote WHERE student = '$regNo'";
-            $studentconcept = mysqli_query($dbcon, "SELECT * FROM conceptnote ") or die(mysqli_error());
+            $studentconcept = mysqli_query($dbcon, "SELECT * FROM conceptnote WHERE supervisor = '$get_user'") or die(mysqli_error());
 
             $concept_note = mysqli_fetch_array($studentconcept);
             $concept_num_row = mysqli_num_rows($studentconcept);
             if($concept_num_row > "0") { ?>
                 <button class="w3-btn w3-btn-block w3-blue w3-left-align" onclick="supervisorConcepts()"><i class="fa fa-sticky-note-o   fa-fw w3-margin-right"></i> View Concept Notes</button>
                 <?php } 
-            else { 
+           /* else { 
                 echo "There are no any submitted concepts. <br />";
-            } 
+            } */
               
             ?> 
       

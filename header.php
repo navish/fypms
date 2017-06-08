@@ -49,7 +49,7 @@ $(function(){
 
   <!-- RIGHT SIDE -->
     <a href="../logout.php" title="Logout"><button class="w3-bar-item w3-btn w3-small w3-hide-small w3-right w3-hover-white">Logout</button></a>
-  <span onclick="loadUser()" class="w3-bar-item w3-button w3-hide-small w3-right w3-margin-right w3-hover-light-grey" title="My Account"><img src="../images/avatar2.png" class="w3-circle" style="height:30px;width:30px" alt="Account" title="My Account"></span>
+  <span onclick="loadUser()" class="w3-bar-item w3-button w3-hide-small w3-right w3-margin-right w3-hover-light-grey" title="My Account"><img src="../images/avatar.png" class="w3-circle" style="height:30px;width:30px" alt="Account" title="My Account"></span>
  </div>
 </div>
 

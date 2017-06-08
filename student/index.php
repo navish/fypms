@@ -22,7 +22,7 @@
           </div>
         </div>
               
-        <?php include '../functions/announce.php'; ?>
+        <?php include '../functions/announcements.php'; ?>
       </div>
     </div>
     <!-- End Middle Column -->

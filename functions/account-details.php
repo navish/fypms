@@ -106,14 +106,14 @@
     }
     else if($role == 1) 
     {
-      echo "I am a supervisor";
+      //echo "I am a supervisor";
         $supervisor_result = mysqli_query($dbcon, "SELECT * FROM supervisor WHERE empId = '$get_user'") or die(mysqli_error());
         $supervisor_row = mysqli_fetch_array($supervisor_result); 
     }
 
     else if($role == 0) 
     {
-      echo "I am a coordinator";
+      //echo "I am a coordinator";
         $coordinator_result = mysqli_query($dbcon, "SELECT * FROM supervisor WHERE empId = '$get_user'") or die(mysqli_error());
         $coordinator_row = mysqli_fetch_array($coordinator_result);
     }
