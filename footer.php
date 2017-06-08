@@ -33,6 +33,24 @@ function openNav() {
 var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
+       document.getElementById("grade").innerHTML = this.responseText;
+      }
+    };
+  function upgradeUser() {
+  xhttp.open("GET", "<?php echo 'gradeuser.php?user='.$theuser; ?>" , true);
+    xhttp.send();
+  }
+  function downgradeUser() {
+  xhttp.open("GET", "<?php echo 'gradeuser.php?user='.$theuser; ?>" , true);
+    xhttp.send();
+  }
+
+</script>
+<script>
+
+var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
        document.getElementById("main").innerHTML = this.responseText;
       }
     };
@@ -118,6 +136,7 @@ function uploadReport() {
     xhttp.open("GET", "../functions/manage-student.php", true);
     xhttp.send();
   }
+  
 
 $(function(){
 

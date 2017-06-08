@@ -33,7 +33,7 @@ for (var i = 0; i < checkboxes.length; i++) {
 	?>
 <div class="w3-container">
 	<button class="w3-btn w3-blue">Add Students</button> 
-	<button class="w3-btn w3-red" name="archive">Archive</button>
+	<!-- button class="w3-btn w3-red" name="archive">Archive</button -->
 </div>
 <br />
 <table class="w3-table w3-hoverable" border="0">

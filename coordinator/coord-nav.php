@@ -18,7 +18,7 @@
               <button class="w3-padding w3-btn-block w3-light-grey w3-left-align" onclick="manageStudents()"><i class="fa fa-users fa-fw w3-margin-right"></i>Students </button>
             </div>
             <div class="w3-padding">
-              <button class="w3-margin-center w3-btn-block w3-light-grey w3-left-align" onclick="manageSupervisors()"><i class="fa fa-users fa-fw w3-margin-right"></i>Supervisors </button>
+              <a href="manage-supervisor.php"><button class="w3-margin-center w3-btn-block w3-light-grey w3-left-align" ><i class="fa fa-users fa-fw w3-margin-right"></i>Supervisors </button></a>
             </div>
           </div>
         </div>      
