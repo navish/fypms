@@ -18,15 +18,11 @@
     <div class="w3-col m9">
     
       <div id="main">
-      <div class="w3-row-padding">
-        <div class="w3-card-2 "> 
-            <div class="w3-container w3-padding">
-              <div class="w3-col m12">
+      <div class="w3-row-padding"> 
+           
+            <div class="w3-col m12">
               <h3 class="w3-center">APPROVE GROUPS</h3>
-              
-              </div>
             </div>
-          </div>
 
         <div class=" "> 
          <div class="w3-container w3-padding">

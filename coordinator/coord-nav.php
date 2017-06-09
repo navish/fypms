@@ -35,7 +35,7 @@
             $concept_note = mysqli_fetch_array($studentconcept);
             $concept_num_row = mysqli_num_rows($studentconcept);
             if($concept_num_row > "0") { ?>
-                <button class="w3-btn w3-btn-block w3-blue w3-left-align" onclick="viewConcepts()"><i class="fa fa-file-text fa-fw w3-margin-right"></i> View Concept Notes</button>
+                <a href="viewconcepts.php"><button class="w3-btn w3-btn-block w3-blue w3-left-align"><i class="fa fa-file-text fa-fw w3-margin-right"></i> View Concept Notes</button></a>
                 <?php } 
             else { 
                 echo "There are no any submitted concepts. <br />";

@@ -46,6 +46,26 @@ var xhttp = new XMLHttpRequest();
   }
 
 </script>
+
+<script>
+
+var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+       document.getElementById("main").innerHTML = this.responseText;
+      }
+    };
+  function approveConcept() {
+  xhttp.open("GET", "<?php echo 'approval.php?concept='.$noteId; ?>" , true);
+    xhttp.send();
+  }
+  function disapproveConcept() {
+  xhttp.open("GET", "<?php echo 'disapproval.php?concept='.$noteId; ?>" , true);
+    xhttp.send();
+  }
+
+</script>
+
 <script>
 
 var xhttp = new XMLHttpRequest();

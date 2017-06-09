@@ -1,3 +1,4 @@
+<div class="w3-card-2"> 
 <?php
 
 	include '../dbcon.php';    
@@ -38,3 +39,5 @@
       		}
         }//End Downgrade
         ?>  
+</div>
+

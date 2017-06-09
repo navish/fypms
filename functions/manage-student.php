@@ -31,15 +31,19 @@ for (var i = 0; i < checkboxes.length; i++) {
 	//$user_row = mysqli_fetch_array($result);
 
 	?>
+
 <div class="w3-container">
-	<button class="w3-btn w3-blue">Add Students</button> 
+<button class="w3-btn w3-blue">Import Students</button> 
 	<!-- button class="w3-btn w3-red" name="archive">Archive</button -->
-</div>
-<br />
+
+<br /><br />
+
+<div class="w3-card-2">
+	
 <table class="w3-table w3-hoverable" border="0">
 	<thead>
 	  <tr class="w3-light-grey">
-	  	<th><form action="" method="POST"><input type="checkbox" id="selectall" /></form></th>
+	  	<!-- th><form action="" method="POST"><input type="checkbox" id="selectall" /></form></th -->
 	    <th>Reg. No.</th>
 	    <th>Name</th>
 	    <th>Group</th>
@@ -53,7 +57,7 @@ for (var i = 0; i < checkboxes.length; i++) {
 	?>
 
 	<tr>
-	  <td><input type="checkbox" class="archive" name="archive[]" value="<?php echo $user_row['regNo'];  ?>" ></td>
+	  <!-- td><input type="checkbox" class="archive" name="archive[]" value="<?php echo $user_row['regNo'];  ?>" ></td -->
 
 	  <td><?php echo $user_row['regNo'];  ?></td>
 	  <?php $theuser = $user_row['regNo'];  ?>
@@ -76,17 +80,5 @@ if (isset($_POST['archive'])) {
 
 	
 ?> 
-
-<script>
-
-function uploadCSVstudent() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("hiihapa").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", "uploadcsv-student.php", true);
-  xhttp.send();
-}
-</script>
+</div>
+</div>

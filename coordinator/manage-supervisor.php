@@ -7,11 +7,11 @@
 ?>
 
 <!-- Page Container -->
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+<div class="w3-container " style="max-width:1400px;margin-top:80px">    
   <!-- The Grid -->
-  <div class="w3-row">
+  <div class="w3-row-padding">
     <!-- Left Column -->
-    <div class="w3-col m3">
+    <div class="w3-col m3 ">
     <?php
       include 'coord-nav.php';
     ?>
@@ -26,7 +26,7 @@
 
       <div class="w3-row-padding w3-container">
         <div id="import" class="">
-			<button onclick="uploadCSVsupervisor()" class="w3-btn w3-blue"><i class="fa fa-users fa-fw "></i>Add Supervisors</button>
+			<button onclick="" class="w3-btn w3-blue"><i class="fa fa-users fa-fw "></i>Ipmort Supervisors</button>
 			<!--button class="w3-btn w3-red">Archive</button -->
 		 </div>
 		 <div id="grade" class="w3-card-2 "> </div>
@@ -36,7 +36,7 @@
 			<table class="w3-table w3-hoverable" border="0">
 				<thead>
 				  <tr class="w3-light-grey">
-				  	<th><input type="checkbox" id="selectall" /></th>
+				  	<!-- th><input type="checkbox" id="selectall" /></th -->
 				    <th>Name</th>
 				    <th>Expertise</th>
 				    <th>Phone Number</th>
@@ -56,7 +56,7 @@
 				?>
 
 				<tr>
-				  <td><input type="checkbox" class="archive" name="archive" value="" ></td>
+				  <!-- td><input type="checkbox" class="archive" name="archive" value="" ></td -->
 				  <td><?php echo $user_row['fName']." ".$user_row['lName']; ?></td>
 				  <td><?php echo $user_row['expertise']; ?></td>
 				  <td><?php echo $user_row['phoneNo']; ?></td>
@@ -101,21 +101,5 @@
   include '../footer.php';
 ?>
 
-</body>
-</html> 
-
-<script>
 
 
-	function uploadCSVsupervisor() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("hiihapa").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", "uploadcsv-supervisor.php", true);
-  xhttp.send();
-}
-
-  </script>
