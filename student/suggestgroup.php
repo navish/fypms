@@ -56,8 +56,8 @@
 
               if (isset($_POST['submit'])) 
               {
-                $fMember = $_POST['fMember'];
-                $sMember = $_POST['sMember'];
+                $fMember = mysqli_real_escape_string($_POST['fMember']);
+                $sMember = mysqli_real_escape_string($_POST['sMember']);
 
                 $suggestion = mysqli_query($dbcon, "INSERT into suggestedgroup(fMember, sMember, tMember, approval) VALUES ('$fMember','$sMember','$regNo', 'waiting') ") or die(mysqli_error($dbcon));
                 if ($suggestion) {

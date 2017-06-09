@@ -28,7 +28,7 @@
 				<table class="w3-table w3-hoverable" border="0">
 				<thead>
 				  <tr class="w3-light-grey">
-				    <th>Student</th>
+				    <th colspan="">Student</th>
 				    <th>Proposed Title</th>
 				    <th>Concept </th>
 				    <th>Proposed Supervisor </th>

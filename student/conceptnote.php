@@ -82,9 +82,9 @@
             <?php
               if (isset($_POST['submit'])) {
 
-                $propsupervisor = $_POST['propsup'];
-                $proptitle = $_POST['title'];
-                $expectedoutput = $_POST['exout'];
+                $propsupervisor = mysqli_real_escape_string($_POST['propsup']);
+                $proptitle = mysqli_real_escape_string($_POST['title']);
+                $expectedoutput = mysqli_real_escape_string($_POST['exout']);
 
                   include 'upload.php';
 
