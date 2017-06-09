@@ -76,5 +76,10 @@
              
         </div>      
       </div>
+
+      <br />
+      <div class="w3-card-2 w3-round w3-white w3-center">
+          <a href="../search-projects.php"><button class="w3-btn-block w3-blue w3-left-align" onclick="">Projects Archieve</button></a>
+      </div>
       <br />
    

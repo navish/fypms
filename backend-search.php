@@ -4,21 +4,21 @@ $output=null;
 $output2=null;
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "georgemarx", "fyp");
+include 'dbcon.php';
  
 // Check connection
-if($link === false){
+if($dbcon === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
  
 // Escape user inputs for security
-$term = mysqli_real_escape_string($link, $_REQUEST['term']);
+$term = mysqli_real_escape_string($dbcon, $_REQUEST['term']);
  
 if(isset($term)){
     // Attempt select query execution
     $sql = "SELECT * FROM project WHERE projectTitle LIKE '" . $term . "%'";
 	$sql2 = "SELECT * FROM pastproject WHERE title LIKE '" . $term . "%'";
-    if($result = mysqli_query($link, $sql)){
+    if($result = mysqli_query($dbcon, $sql)){
         if(mysqli_num_rows($result) > 0){
 			
 			$output .= '
@@ -50,7 +50,7 @@ if(isset($term)){
         }
     }
 
-if($result2 = mysqli_query($link, $sql2)){
+if($result2 = mysqli_query($dbcon, $sql2)){
         if(mysqli_num_rows($result2) > 0){
 			
 			$output2 .= '
@@ -86,10 +86,10 @@ if($result2 = mysqli_query($link, $sql2)){
 	
 
 	else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($dbcon);
     }
 }
  
 // close connection
-mysqli_close($link);
+mysqli_close($dbcon);
 ?>
