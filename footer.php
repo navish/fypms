@@ -74,7 +74,15 @@ var xhttp = new XMLHttpRequest();
        document.getElementById("main").innerHTML = this.responseText;
       }
     };
-    
+function approveGroup()  {
+    xhttp.open("GET", "<?php echo 'approvegroup.php?groupsug='.$sugId; ?>" , true);
+    xhttp.send();
+  }
+function disapproveGroup()  {
+    xhttp.open("GET", "<?php echo 'approvegroup.php?groupsug='.$sugId; ?>" , true);
+    xhttp.send();
+  }
+
 function loadSupervisors() {
   xhttp.open("GET", "../functions/supervisor.php", true);
     xhttp.send();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2017 at 11:50 AM
+-- Generation Time: Jun 09, 2017 at 10:00 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -65,8 +65,11 @@ CREATE TABLE `conceptnote` (
 --
 
 INSERT INTO `conceptnote` (`conceptid`, `studentid`, `proposedtitle`, `expectedoutput`, `conceptfile`, `supervisor`, `reccomended`, `approval`, `time`) VALUES
-(1, '2014-04-02775', 'Makulaji', 'Mobile App', '', 1002, 'waiting', 'waiting', '2017-04-19 09:53:00'),
-(2, '2014-04-02765', 'Free Gaming', 'Web and Mobile App', '', 1001, 'disapproved', 'disapproved', '2017-04-19 09:54:12');
+(1, '2014-04-02775', 'Makulaji', 'Mobile App', '', '1002', 'waiting', 'waiting', '2017-04-19 09:53:00'),
+(2, '2014-04-02765', 'Free Gaming', 'Web and Mobile App', '', '1001', 'no', 'disapproved', '2017-04-19 09:54:12'),
+(5, '$regNo', '$proptitle', '$expectedoutput', '$target_file', '1002', 'no', 'waiting', '2017-06-07 17:50:05'),
+(6, '2014-04-02753', 'Nana', 'Web APP', '../concept-notes/GR5.pdf', '1002', 'no', 'waiting', '2017-06-07 17:51:12'),
+(8, '2014-04-02776', 'Betting for Basketball', 'Mob App', '../concept-notes/D_interior_logo.pdf', '1001', 'no', 'waiting', '2017-06-07 18:30:13');
 
 -- --------------------------------------------------------
 
@@ -86,8 +89,8 @@ CREATE TABLE `grp` (
 --
 
 INSERT INTO `grp` (`grpId`, `grpNo`, `approval`, `empId`) VALUES
-(2017003, 3, 1, 1002),
-(2017005, 5, 1, 1001);
+(2017003, 3, 1, '1002'),
+(2017005, 5, 1, '1001');
 
 -- --------------------------------------------------------
 
@@ -108,13 +111,25 @@ CREATE TABLE `login` (
 INSERT INTO `login` (`user`, `passwrd`, `role`) VALUES
 ('1000', '55eede497d7871e31b3b3f83be7d774b', 0),
 ('1001', '9ceb182d9b8ff8f677b8452a47a546eb', 1),
-('1002', '31dc11e9d9e5550def91b4c26e6702dd', 1),
+('1002', '6238d420eea563fde00d3ed01b6b6074', 0),
 ('2014-04-02753', '7b0f81bdd2b24ba32cb27f6c16e6b900', 2),
 ('2014-04-02765', '600515d87c3796b0a4719d5640f3c551', 2),
 ('2014-04-02775', '8935705368873b69917af5531f3fcb25', 2),
 ('2014-04-02776', '0781e795b6339868e4d2822ed8f79155', 2),
 ('2014-04-02854', '4125046a587515dd21fa00c0d5aeeffc', 2),
 ('2014-04-02941', 'c2a49574d9a282bbfc2b53978febe37e', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logs`
+--
+
+CREATE TABLE `logs` (
+  `idlogs` int(11) NOT NULL,
+  `time` timestamp(6) NULL DEFAULT NULL,
+  `progressreport_reportId` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -175,7 +190,7 @@ CREATE TABLE `progressreport` (
 
 INSERT INTO `progressreport` (`reportId`, `projectId`, `review`, `sem1_progress`, `sem1_final`, `sem2_progress`, `sem2_final`) VALUES
 (1, 1, '', 'reports/gr42.pdf', NULL, NULL, NULL),
-(2, 2, '../review-reports/ACO.pdf', '../finalsub-reports/Bunnies-From-the-Future-FKB-MG-Books.pdf', '', '../finalsub-reports/multi-screen-consumer-whitepaper_research-studies.pdf', '../finalsub-reports/how to win friends and influence people.pdf');
+(2, 2, '../review-reports/SRS v1.docx', '../finalsub-reports/Bunnies-From-the-Future-FKB-MG-Books.pdf', '', '../finalsub-reports/multi-screen-consumer-whitepaper_research-studies.pdf', '../finalsub-reports/how to win friends and influence people.pdf');
 
 -- --------------------------------------------------------
 
@@ -226,11 +241,11 @@ INSERT INTO `student` (`regNo`, `fName`, `mName`, `lName`, `email`, `phoneNo`, `
 ('2014-04-02758', 'Raymond', NULL, 'Chacha', 'raymondchacha19@gmail.com', '0652799910', 'Bsc. in Computer Science'),
 ('2014-04-02763', 'Daud ', NULL, 'Shanyangi', 'shaydavid46@gmail.com', '0719707543', 'Bsc. in Computer Science'),
 ('2014-04-02765', 'Jerrold', 'John', 'Gwaseko', 'jjgwaseko@gmail.com', '0717939395', 'Bsc. in Computer Science'),
-('2014-04-02775', 'ANETH', NULL, 'NEMES ', 'mworiaaneth114@gmail.com	', '0753993170	', 'Bsc. in Computer Science'),
+('2014-04-02775', 'ANETH', NULL, 'NEMES ', 'mworiaaneth114@gmail.com  ', '0753993170  ', 'Bsc. in Computer Science'),
 ('2014-04-02776', 'Brian', 'Jude', 'Mndeme', 'pierremory1@gmail.com', '0716879797', 'Bsc. in Computer Science'),
 ('2014-04-02801', 'Godson', NULL, 'Derick', 'godsonderick@gmail.com', '0652559657', 'Bsc. in Computer Science'),
 ('2014-04-02812', 'Jephter ', 'John', 'Saganda', 'jephtersaganda30@gmail.com', '0716474389', 'Bsc. in Computer Science'),
-('2014-04-02854', 'Teodori', '', 'FAUSTINE', 'theodoryf@gmail.com	', '0653974024	', 'Bsc. in Computer Science'),
+('2014-04-02854', 'Teodori', '', 'FAUSTINE', 'theodoryf@gmail.com ', '0653974024  ', 'Bsc. in Computer Science'),
 ('2014-04-02862', 'George', NULL, 'Elia', 'georgemarx90@gmail.com', '0713220532', 'Bsc. in Computer Science'),
 ('2014-04-02941', 'Frank', NULL, 'Thomas', 'frankthomaseng@gmail.com', '0756618619', 'Bsc with Computer Science');
 
@@ -245,7 +260,6 @@ CREATE TABLE `suggestedgroup` (
   `fMember` varchar(13) NOT NULL,
   `sMember` varchar(13) NOT NULL,
   `tMember` varchar(13) NOT NULL,
-  `proposedTitle` varchar(100) NOT NULL,
   `approval` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -253,10 +267,11 @@ CREATE TABLE `suggestedgroup` (
 -- Dumping data for table `suggestedgroup`
 --
 
-INSERT INTO `suggestedgroup` (`sugId`, `fMember`, `sMember`, `tMember`, `proposedTitle`, `approval`) VALUES
-(32431, '2014-04-02801', '2014-04-02763', '', '', 'waiting'),
-(32432, '2014-04-02941', '2014-04-02776', '', '', 'approved'),
-(32433, '2014-04-02750', '2014-04-02812', '2014-04-02758', '', 'waiting');
+INSERT INTO `suggestedgroup` (`sugId`, `fMember`, `sMember`, `tMember`, `approval`) VALUES
+(32431, '2014-04-02801', '2014-04-02763', '', 'waiting'),
+(32433, '2014-04-02750', '2014-04-02812', '2014-04-02758', 'waiting'),
+(32434, '2014-04-02941', '2014-04-02854', '', 'approved'),
+(32435, '2014-04-02941', '2014-04-02854', '2014-04-02776', 'waiting');
 
 -- --------------------------------------------------------
 
@@ -279,8 +294,8 @@ CREATE TABLE `supervisor` (
 --
 
 INSERT INTO `supervisor` (`empId`, `fName`, `lName`, `email`, `phoneNo`, `expertise`, `privilege`) VALUES
-(1001, 'Cosmas', 'Mushi', 'joseph.cosmas@udsm.ac.tz', '0714141414', 'Web Programming', '2'),
-(1002, 'Collins', 'Victor', 'c.victor@udsm.ac.tz', '0754545454', 'Internet Security', '1');
+('1001', 'Cosmas', 'Mushi', 'joseph.cosmas@udsm.ac.tz', '0714141414', 'Web Programming', '2'),
+('1002', 'Collins', 'Victor', 'c.victor@udsm.ac.tz', '0754545454', 'Internet Security', '1');
 
 --
 -- Indexes for dumped tables
@@ -311,7 +326,15 @@ ALTER TABLE `grp`
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`user`);
+  ADD PRIMARY KEY (`user`),
+  ADD KEY `empId` (`user`);
+
+--
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`idlogs`),
+  ADD KEY `fk_logs_progressreport1_idx` (`progressreport_reportId`);
 
 --
 -- Indexes for table `members`
@@ -373,7 +396,12 @@ ALTER TABLE `announcement`
 -- AUTO_INCREMENT for table `conceptnote`
 --
 ALTER TABLE `conceptnote`
-  MODIFY `conceptid` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `conceptid` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `idlogs` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `pastproject`
 --
@@ -393,7 +421,7 @@ ALTER TABLE `project`
 -- AUTO_INCREMENT for table `suggestedgroup`
 --
 ALTER TABLE `suggestedgroup`
-  MODIFY `sugId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32434;
+  MODIFY `sugId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32436;
 --
 -- Constraints for dumped tables
 --
@@ -403,6 +431,12 @@ ALTER TABLE `suggestedgroup`
 --
 ALTER TABLE `conceptnote`
   ADD CONSTRAINT `conceptnote_ibfk_1` FOREIGN KEY (`supervisor`) REFERENCES `supervisor` (`empId`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `logs`
+--
+ALTER TABLE `logs`
+  ADD CONSTRAINT `fk_logs_progressreport1` FOREIGN KEY (`progressreport_reportId`) REFERENCES `progressreport` (`reportId`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `members`
