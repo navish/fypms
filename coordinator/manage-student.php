@@ -39,7 +39,7 @@
 			
 		<table class="w3-table w3-hoverable" border="0">
 			<thead>
-			  <tr class="w3-light-grey">
+			  <tr class="w3-dark-grey">
 			  	<!-- th><form action="" method="POST"><input type="checkbox" id="selectall" /></form></th -->
 			    <th>Reg. No.</th>
 			    <th>Name</th>

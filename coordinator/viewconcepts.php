@@ -39,23 +39,24 @@
 				</thead>
 				<?php 
 					while($concept_note=mysqli_fetch_array($studentconcept)) {
-						$noteId = $concept_note['studentid'];
+						$noteId = $concept_note['conceptid'];
 						$approval = $concept_note['approval'];
 				?>
 				<tr>
 				  <td><?php echo $concept_note['studentid']; ?></td>
 				  <td><?php echo $concept_note['proposedtitle']; ?></td>
-				  <td><a href="">View Document</a></td>
+				  <td><?php echo '<a href="'.$concept_note['conceptfile'].'">View Document</a>'; ?></td>
 				  <td><?php echo $concept_note['supervisor']; ?></td>
 			      <td><?php echo $concept_note['reccomended']; ?></td>
 			      <td>
 			      <?php
 
-					if ($approval =="waiting") { ?>
-				         <button class="w3-padding w3-btn w3-green w3-left-align" onclick="approveConcept()"><i class="fa fa-check fa-fw"></i></button>
-				      	<button class="w3-padding w3-btn w3-red w3-left-align" onclick="disapproveConcept()"><i class="fa fa-remove fa-fw"></i></button>
+					if ($approval =="waiting") {
+				         echo '<a href="approval.php?concept='.$noteId.'"><button class="w3-padding w3-btn w3-green w3-left-align" ><i class="fa fa-check fa-fw"></i></button> </a>'; 
+
+				         echo '<a href="disapproval.php?concept='.$noteId.'"><button class="w3-padding w3-btn w3-red w3-left-align" ><i class="fa fa-remove fa-fw"></i></button> </a>'; 
 				      		  			
-					<?php 
+					
 					} elseif ($approval =="approved")  
 			        { 
 			               echo "Approved";

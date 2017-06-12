@@ -27,7 +27,7 @@
       <div id="main">
 
 
-      <div class="w3-row-padding w3-container">
+      <div class="w3-row-padding">
        
 	<div class="w3-center"> 
 	<h3>VIEW GROUPS</h3>

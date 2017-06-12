@@ -15,11 +15,6 @@
 	$report = mysqli_fetch_array($reportsql);
 
 	$reviewfile = $report['review'];
-	//$fileAddress = "../".$reviewfile;
-	/*$sem1_progress = $report['sem1_progress'];
-	$sem1_final = $report['sem1_final'];
-	$sem2_progress = $report['sem2_progress'];
-	$sem2_final = $report['sem2_final'];*/
 	
 ?>
 <table class="w3-table w3-hoverable w3-responsive w3-bordered">

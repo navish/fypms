@@ -39,25 +39,6 @@ var xhttp = new XMLHttpRequest();
        document.getElementById("main").innerHTML = this.responseText;
       }
     };
-  function approveConcept() {
-  xhttp.open("GET", "<?php echo 'approval.php?concept='.$noteId; ?>" , true);
-    xhttp.send();
-  }
-  function disapproveConcept() {
-  xhttp.open("GET", "<?php echo 'disapproval.php?concept='.$noteId; ?>" , true);
-    xhttp.send();
-  }
-
-</script>
-
-<script>
-
-var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-       document.getElementById("main").innerHTML = this.responseText;
-      }
-    };
 function approveGroup()  {
     xhttp.open("GET", "<?php echo 'approvegroup.php?groupsug='.$sugId; ?>" , true);
     xhttp.send();
@@ -88,16 +69,8 @@ function uploadReport() {
   xhttp.open("GET", "submitreport.php", true);
     xhttp.send();
   }
-  function viewConcepts() {
-    xhttp.open("GET", "../functions/viewconcepts.php", true);
-    xhttp.send();
-  }
  function supervisorConcepts() {
     xhttp.open("GET", "../functions/supervisor-concepts.php", true);
-    xhttp.send();
-  }
-  function viewGroups() {
-    xhttp.open("GET", "../functions/groups.php", true);
     xhttp.send();
   }
   function supervisorGroups() {

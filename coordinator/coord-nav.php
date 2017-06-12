@@ -46,7 +46,7 @@
       <br />
         <div class="w3-card-2 w3-round">
         <div class="w3-white">
-          <button onclick="viewGroups()" class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i>View Groups </button>
+          <a href="groups.php"><button class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i>View Groups </button></a>
           
           </div>
         </div>
@@ -66,7 +66,7 @@
 
       <div class="w3-card-2 w3-round">
         <div class="w3-white">
-          <button onclick="viewReports()" class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-file-text fa-fw w3-margin-right"></i> View Submitted Reports</button>
+          <a href="viewreports.php"><button class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-file-text fa-fw w3-margin-right"></i> View Submitted Reports</button></a>
              
         </div>      
       </div>
