@@ -1,5 +1,6 @@
 <?php
   include '../header.php';
+  $get_user ="";
   $get_user = $_GET['user'];
 ?>
 
@@ -45,9 +46,10 @@
 
                   if ($pass == $confirm) {
                     $confirmpass = md5($confirm);
-                      $loginsql = mysqli_query($dbcon, "UPDATE login SET passwrd=$confirmpass WHERE user = $get_user") or die(mysqli_error($dbcon));
+                      $loginsql = mysqli_query($dbcon, "UPDATE `login` SET `passwrd`='$confirmpass' WHERE `user` = $get_user") or die(mysqli_error($dbcon));
                       if ($loginsql) { 
                         echo '<div class="w3-center w3-border-green">Password changed successfully</div>';
+                        //echo "$confirmpass";
 
                         } else { 
                           echo '<div class="w3-center w3-border-red">Something went wrong password was not changed</div>';

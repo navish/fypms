@@ -27,49 +27,9 @@ function openNav() {
     }
 }
 </script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-    $('.search-box input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
-        var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".result");
-        if(inputVal.length){
-            $.get("backend-search.php", {term: inputVal}).done(function(data){
-                // Display the returned data in browser
-                resultDropdown.html(data);
-            });
-        } else{
-            resultDropdown.empty();
-        }
-    });
-    
-    // Set search input value on click of result item
-    $(document).on("click", ".result p", function(){
-        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
-        $(this).parent(".result").empty();
-    });
-});
-</script>
+
 <!-- Index Page -->
-<script>
 
-var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-       document.getElementById("grade").innerHTML = this.responseText;
-      }
-    };
-  function upgradeUser() {
-  xhttp.open("GET", "<?php echo 'gradeuser.php?user='.$theuser; ?>" , true);
-    xhttp.send();
-  }
-  function downgradeUser() {
-  xhttp.open("GET", "<?php echo 'gradeuser.php?user='.$theuser; ?>" , true);
-    xhttp.send();
-  }
-
-</script>
 
 <script>
 
@@ -176,39 +136,13 @@ function uploadReport() {
     xhttp.open("GET", "../functions/manage-supervisor.php", true);
     xhttp.send();
   }
-  function uploadCSVstudent() {
-    xhttp.open("GET", "functions/uploadcsv-student.php", true);
-    xhttp.send();
-  }
-  function uploadCSVsupervisor() {
-    xhttp.open("GET", "functions/uploadcsv-supervisor.php", true);
-    xhttp.send();
-  }
+
   function manageStudents() {
     xhttp.open("GET", "../functions/manage-student.php", true);
     xhttp.send();
   }
   
 
-$(function(){
-
-  // add multiple select / deselect functionality
-  $("#selectall").click(function () {
-      $('.case').attr('checked', this.checked);
-  });
-
-  // if all checkbox are selected, check the selectall checkbox
-  // and viceversa
-  $(".case").click(function(){
-
-    if($(".case").length == $(".case:checked").length) {
-      $("#selectall").attr("checked", "checked");
-    } else {
-      $("#selectall").removeAttr("checked");
-    }
-
-  });
-});
 </script>
 
 </body>

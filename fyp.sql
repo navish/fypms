@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2017 at 10:00 AM
+-- Generation Time: Jun 12, 2017 at 07:33 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -65,11 +65,11 @@ CREATE TABLE `conceptnote` (
 --
 
 INSERT INTO `conceptnote` (`conceptid`, `studentid`, `proposedtitle`, `expectedoutput`, `conceptfile`, `supervisor`, `reccomended`, `approval`, `time`) VALUES
-(1, '2014-04-02775', 'Makulaji', 'Mobile App', '', '1002', 'waiting', 'waiting', '2017-04-19 09:53:00'),
-(2, '2014-04-02765', 'Free Gaming', 'Web and Mobile App', '', '1001', 'no', 'disapproved', '2017-04-19 09:54:12'),
-(5, '$regNo', '$proptitle', '$expectedoutput', '$target_file', '1002', 'no', 'waiting', '2017-06-07 17:50:05'),
-(6, '2014-04-02753', 'Nana', 'Web APP', '../concept-notes/GR5.pdf', '1002', 'no', 'waiting', '2017-06-07 17:51:12'),
-(8, '2014-04-02776', 'Betting for Basketball', 'Mob App', '../concept-notes/D_interior_logo.pdf', '1001', 'no', 'waiting', '2017-06-07 18:30:13');
+(1, '2014-04-02775', 'Makulaji', 'Mobile App', '', 'cvictor', 'waiting', 'waiting', '2017-04-19 09:53:00'),
+(2, '2014-04-02765', 'Free Gaming', 'Web and Mobile App', '', 'cmushi', 'no', 'disapproved', '2017-04-19 09:54:12'),
+(5, '$regNo', '$proptitle', '$expectedoutput', '$target_file', 'cvictor', 'no', 'waiting', '2017-06-07 17:50:05'),
+(6, '2014-04-02753', 'Nana', 'Web APP', '../concept-notes/GR5.pdf', 'cvictor', 'no', 'waiting', '2017-06-07 17:51:12'),
+(8, '2014-04-02776', 'Betting for Basketball', 'Mob App', '../concept-notes/D_interior_logo.pdf', 'cmushi', 'no', 'waiting', '2017-06-07 18:30:13');
 
 -- --------------------------------------------------------
 
@@ -89,8 +89,8 @@ CREATE TABLE `grp` (
 --
 
 INSERT INTO `grp` (`grpId`, `grpNo`, `approval`, `empId`) VALUES
-(2017003, 3, 1, '1002'),
-(2017005, 5, 1, '1001');
+(2017003, 3, 1, 'cvictor'),
+(2017005, 5, 1, 'cmushi');
 
 -- --------------------------------------------------------
 
@@ -110,14 +110,32 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`user`, `passwrd`, `role`) VALUES
 ('1000', '55eede497d7871e31b3b3f83be7d774b', 0),
-('1001', '9ceb182d9b8ff8f677b8452a47a546eb', 1),
-('1002', '6238d420eea563fde00d3ed01b6b6074', 0),
+('cmushi', '9ceb182d9b8ff8f677b8452a47a546eb', 1),
+('cvictor', '6238d420eea563fde00d3ed01b6b6074', 1),
+('2014-04-02747', 'Kowero', 2),
+('2014-04-02748', 'Mwaisaka', 2),
 ('2014-04-02753', '7b0f81bdd2b24ba32cb27f6c16e6b900', 2),
+('2014-04-02757', 'Mhagama', 2),
 ('2014-04-02765', '600515d87c3796b0a4719d5640f3c551', 2),
 ('2014-04-02775', '8935705368873b69917af5531f3fcb25', 2),
 ('2014-04-02776', '0781e795b6339868e4d2822ed8f79155', 2),
+('2014-04-02795', 'Manyhnela ', 2),
+('2014-04-02807', 'Wickama', 2),
+('2014-04-02834', 'Moshi', 2),
+('2014-04-02835', 'Jackson', 2),
+('2014-04-02838', 'Gaitu', 2),
+('2014-04-02841', 'Mwakalundwa', 2),
 ('2014-04-02854', '4125046a587515dd21fa00c0d5aeeffc', 2),
-('2014-04-02941', 'c2a49574d9a282bbfc2b53978febe37e', 2);
+('2014-04-02915', 'Babere', 2),
+('2014-04-02926', 'Mbwilo', 2),
+('2014-04-02928', 'Amasi', 2),
+('2014-04-02941', 'c2a49574d9a282bbfc2b53978febe37e', 2),
+('2014-04-02953', 'Mwangila', 2),
+('hkalisti', '6b0130f25b82cafd888154c29440ff20', 1),
+('hkimaro', '2f4ce07dc44d40051a58acfd5a4839c6', 1),
+('kfrank', 'f9dc77cece7fa16f6edd2d1d64853e4b', 1),
+('kkapis', 'fe24d2219c3c9d858d3b69916ab123d1', 1),
+('mtunga', '6f0ae3c152b033b7237808cd1a74814f', 1);
 
 -- --------------------------------------------------------
 
@@ -167,6 +185,13 @@ CREATE TABLE `pastproject` (
   `supervisorId` varchar(20) NOT NULL,
   `students` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pastproject`
+--
+
+INSERT INTO `pastproject` (`id`, `title`, `year`, `description`, `output`, `supervisorId`, `students`) VALUES
+(1, 'Book Swappers', 2015, 'A site for book lovers to showcase their book libraries and swap books with other readers', 'Web App', 'cvictor', '2015004');
 
 -- --------------------------------------------------------
 
@@ -236,18 +261,31 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`regNo`, `fName`, `mName`, `lName`, `email`, `phoneNo`, `course`) VALUES
+('2014-04-02747', 'Abubakari', ' Yasini', 'Kowero', 'abuyako@gmail.com', '+255714228208', 'Bsc. in Computer Science'),
+('2014-04-02748', 'Timothy', '', 'Mwaisaka', 'timoso@yahoo.com', '+255716683434', 'Bsc. in Computer Science'),
 ('2014-04-02750', 'Jesse-Justin', 'S', 'Mdachi', 'jessejustinm@gmail.com', '0684597032', 'Bsc. in Computer Science'),
 ('2014-04-02753', 'Nancy', 'Victor', 'David', 'navish45@gmail.com', '0782120252', 'Bsc. in Computer Science'),
+('2014-04-02757', 'Janeth', 'Yohana', 'Mhagama', 'janethmhagama@gmail.com', '+255785979254', 'Bsc. in Computer Science'),
 ('2014-04-02758', 'Raymond', NULL, 'Chacha', 'raymondchacha19@gmail.com', '0652799910', 'Bsc. in Computer Science'),
 ('2014-04-02763', 'Daud ', NULL, 'Shanyangi', 'shaydavid46@gmail.com', '0719707543', 'Bsc. in Computer Science'),
 ('2014-04-02765', 'Jerrold', 'John', 'Gwaseko', 'jjgwaseko@gmail.com', '0717939395', 'Bsc. in Computer Science'),
 ('2014-04-02775', 'ANETH', NULL, 'NEMES ', 'mworiaaneth114@gmail.com  ', '0753993170  ', 'Bsc. in Computer Science'),
 ('2014-04-02776', 'Brian', 'Jude', 'Mndeme', 'pierremory1@gmail.com', '0716879797', 'Bsc. in Computer Science'),
+('2014-04-02795', 'Emmanuel ', '', 'Manyhnela ', 'emanuelian3@gmail.com', '+255752548877', 'Bsc. in Computer Science'),
 ('2014-04-02801', 'Godson', NULL, 'Derick', 'godsonderick@gmail.com', '0652559657', 'Bsc. in Computer Science'),
+('2014-04-02807', 'Ibrahim', 'Juma', 'Wickama', 'ibrahimwickama@gmail.com', '+255653994194', 'Bsc. in Computer Science'),
 ('2014-04-02812', 'Jephter ', 'John', 'Saganda', 'jephtersaganda30@gmail.com', '0716474389', 'Bsc. in Computer Science'),
+('2014-04-02834', 'Oswald', 'Gerald', 'Moshi', 'moswaldgerald@gmail.com', '+255762592689', 'Bsc. in Computer Science'),
+('2014-04-02835', 'Jackson Paschal ', '', 'Jackson', 'paschaljackson111@gmail.com', '+255682611584', 'Bsc. in Computer Science'),
+('2014-04-02838', 'Pendo ', 'P', 'Gaitu', 'cutiependo@gmail.com', '+255653175907', 'Bsc. in Computer Science'),
+('2014-04-02841', 'Reuben ', 'W.', 'Mwakalundwa', '23nownii5t311a@gmail.com', '+255683950948', 'Bsc. in Computer Science'),
 ('2014-04-02854', 'Teodori', '', 'FAUSTINE', 'theodoryf@gmail.com ', '0653974024  ', 'Bsc. in Computer Science'),
 ('2014-04-02862', 'George', NULL, 'Elia', 'georgemarx90@gmail.com', '0713220532', 'Bsc. in Computer Science'),
-('2014-04-02941', 'Frank', NULL, 'Thomas', 'frankthomaseng@gmail.com', '0756618619', 'Bsc with Computer Science');
+('2014-04-02915', 'Daniel', '', 'Babere', 'danielbabere@gmail.com', '+255657316169', 'Bsc with Computer Science'),
+('2014-04-02926', 'David ', 'Pius', 'Mbwilo', 'mbwilodavy@gmail.com', '+255652612459', 'Bsc. with Computer Science'),
+('2014-04-02928', 'Deogratias ', 'Peter', 'Amasi', 'amasdeorsantos@gmail.com', '+255712794778', 'BSc with Computer Science'),
+('2014-04-02941', 'Frank', NULL, 'Thomas', 'frankthomaseng@gmail.com', '0756618619', 'Bsc with Computer Science'),
+('2014-04-02953', 'Helena', 'Charles', 'Mwangila', 'mwangilahelena@gmail.com', '+255752150498', 'Bsc. with Computer Science');
 
 -- --------------------------------------------------------
 
@@ -269,7 +307,7 @@ CREATE TABLE `suggestedgroup` (
 
 INSERT INTO `suggestedgroup` (`sugId`, `fMember`, `sMember`, `tMember`, `approval`) VALUES
 (32431, '2014-04-02801', '2014-04-02763', '', 'waiting'),
-(32433, '2014-04-02750', '2014-04-02812', '2014-04-02758', 'waiting'),
+(32433, '2014-04-02750', '2014-04-02812', '2014-04-02758', 'approved'),
 (32434, '2014-04-02941', '2014-04-02854', '', 'approved'),
 (32435, '2014-04-02941', '2014-04-02854', '2014-04-02776', 'waiting');
 
@@ -286,16 +324,21 @@ CREATE TABLE `supervisor` (
   `email` varchar(25) NOT NULL,
   `phoneNo` varchar(15) NOT NULL,
   `expertise` varchar(50) NOT NULL,
-  `privilege` varchar(10) NOT NULL DEFAULT 'Normal'
+  `office` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `supervisor`
 --
 
-INSERT INTO `supervisor` (`empId`, `fName`, `lName`, `email`, `phoneNo`, `expertise`, `privilege`) VALUES
-('1001', 'Cosmas', 'Mushi', 'joseph.cosmas@udsm.ac.tz', '0714141414', 'Web Programming', '2'),
-('1002', 'Collins', 'Victor', 'c.victor@udsm.ac.tz', '0754545454', 'Internet Security', '1');
+INSERT INTO `supervisor` (`empId`, `fName`, `lName`, `email`, `phoneNo`, `expertise`, `office`) VALUES
+('cmushi', 'Cosmas', 'Mushi', 'joseph.cosmas@udsm.ac.tz', '0714141414', 'Web Programming', 'A23'),
+('cvictor', 'Collins', 'Victor', 'c.victor@udsm.ac.tz', '0754545454', 'Internet Security', 'A20'),
+('hkalisti', 'Mr. Henry', 'Kalisti', 'kanry2@gmail.com', '0758010101', 'Database', 'B108'),
+('hkimaro', 'Dr. Honest', 'Kimaro', '', '', 'IOT', ''),
+('kfrank', 'Mr. Kennedy', 'Frank', 'kenfactz@gmail.com', '', 'Data Science', ''),
+('kkapis', 'Dr. Kosmas', 'Kapis', '', '', 'IT Security', 'A23'),
+('mtunga', 'Ms. Mahadia', 'Tunga', 'mahadiatunga@gmail.com', '', 'Software Development', '');
 
 --
 -- Indexes for dumped tables
@@ -406,7 +449,7 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT for table `pastproject`
 --
 ALTER TABLE `pastproject`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `progressreport`
 --

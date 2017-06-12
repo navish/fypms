@@ -3,7 +3,6 @@
          <h4 class="">Coordinator's Dashboard</h4>
          <hr>
          <p><i class="fa fa-person fa-fw "></i> Name: <?php echo "Cosmas Mushi" ?></p>
-         <!-- p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> <?php //echo "ID: ".$user_row['empId']; ?></p -->
         </div>
       </div>
       <br>
@@ -15,7 +14,7 @@
           <button onclick="myFunction('Demo3')" class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> Manage Users</button>
           <div id="Demo3" class="w3-hide w3-container">
             <div class="w3-padding">
-              <button class="w3-padding w3-btn-block w3-light-grey w3-left-align" onclick="manageStudents()"><i class="fa fa-users fa-fw w3-margin-right"></i>Students </button>
+              <a href="manage-student.php"><button class="w3-padding w3-btn-block w3-light-grey w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i>Students </button></a>
             </div>
             <div class="w3-padding">
               <a href="manage-supervisor.php"><button class="w3-margin-center w3-btn-block w3-light-grey w3-left-align" ><i class="fa fa-users fa-fw w3-margin-right"></i>Supervisors </button></a>
@@ -29,7 +28,6 @@
             <div class="w3-white">
 
             <?php 
-            #$conceptsql = "SELECT * FROM conceptnote WHERE student = '$regNo'";
             $studentconcept = mysqli_query($dbcon, "SELECT * FROM conceptnote ") or die(mysqli_error());
 
             $concept_note = mysqli_fetch_array($studentconcept);

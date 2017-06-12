@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html>
 <head>
 		<title>CoICT FYPMS</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <script type="text/javascript" src="../styles/jquery.min.js"></script>
   		<link rel="stylesheet" type="text/css" href="../styles/w3.css">
 			<link rel="stylesheet" type="text/css" href="../styles/style.css">
 			<link rel="stylesheet" type="text/css" href="../styles/w3-theme-blue-grey.css">
@@ -12,27 +10,7 @@
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
-<script>
-$(function(){
-  // add multiple select / deselect functionality
-  $("#selectall").click(function () {
-      $('.archive').attr('checked', this.checked);
-  });
 
-  // if all checkbox are selected, check the selectall checkbox
-  // and viceversa
-  $(".archive").click(function(){
-
-    if($(".archive").length == $(".archive:checked").length) {
-      $("#selectall").attr("checked", "checked");
-    } else {
-      $("#selectall").removeAttr("checked");
-    }
-
-  });
-});
-
-  </script>
 
 </head>
 <?php 
