@@ -50,7 +50,7 @@
              else { ?>
                <table class="w3-table-all">
                 <thead>
-                  <tr class="w3-light-grey">
+                  <tr class="w3-dark-grey">
                     <th>Approved Group Members</th>
                     <th>Proposed Title</th>
                     <th>Select Supervisor </th>
