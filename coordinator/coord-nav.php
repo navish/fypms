@@ -1,3 +1,12 @@
+<?php
+
+if (!($_SESSION['id']) ){
+header('location:../index.php');
+exit();
+
+}
+?>
+
 <div class="w3-card-2 w3-round w3-white">
         <div class="w3-center w3-container">
          <h4 class="">Coordinator's Dashboard</h4>

@@ -1,5 +1,11 @@
 <?php 
-  include '../header.php';
+
+if (!($_SESSION['id']) ){
+header('location:../index.php');
+exit();
+
+}
+
   $get_user = $_SESSION['id'];
 
   $result = mysqli_query($dbcon, "SELECT * FROM student WHERE regNo = '$get_user'") or die(mysqli_error());

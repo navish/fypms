@@ -2,6 +2,7 @@
 
 <?php
   include '../header.php';
+
 ?>
 
 <!-- Page Container -->
@@ -48,7 +49,7 @@
               
              }
              else { ?>
-               <table class="w3-table-all">
+               <table class="w3-table w3">
                 <thead>
                   <tr class="w3-dark-grey">
                     <th>Approved Group Members</th>

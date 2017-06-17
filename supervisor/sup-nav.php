@@ -1,4 +1,10 @@
+
 <?php
+
+  if (!($_SESSION['id']) ){
+  header('location:../index.php');
+  exit();
+}
 
   $get_user = $_SESSION['id'];
 
