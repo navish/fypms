@@ -16,27 +16,6 @@
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
-<script>
-$(function(){
-  // add multiple select / deselect functionality
-  $("#selectall").click(function () {
-      $('.archive').attr('checked', this.checked);
-  });
-
-  // if all checkbox are selected, check the selectall checkbox
-  // and viceversa
-  $(".archive").click(function(){
-
-    if($(".archive").length == $(".archive:checked").length) {
-      $("#selectall").attr("checked", "checked");
-    } else {
-      $("#selectall").removeAttr("checked");
-    }
-
-  });
-});
-
-  </script>
 
 </head>
 <body>
@@ -107,6 +86,7 @@ $(function(){
 </footer>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function(){
     $('.search-box input[type="text"]').on("keyup input", function(){

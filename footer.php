@@ -118,5 +118,26 @@ function uploadReport() {
 
 </script>
 
+<script>
+$(function(){
+  // add multiple select / deselect functionality
+  $("#selectall").click(function () {
+      $('.archive').attr('checked', this.checked);
+  });
+
+  // if all checkbox are selected, check the selectall checkbox
+  // and viceversa
+  $(".archive").click(function(){
+
+    if($(".archive").length == $(".archive:checked").length) {
+      $("#selectall").attr("checked", "checked");
+    } else {
+      $("#selectall").removeAttr("checked");
+    }
+
+  });
+});
+
+  </script>
 </body>
 </html>
