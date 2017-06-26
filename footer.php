@@ -32,7 +32,6 @@ function openNav() {
 
 
 <script>
-
 var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -105,21 +104,13 @@ function uploadReport() {
     xhttp.open("GET", "../functions/viewreports.php", true);
     xhttp.send();
   }
-   function manageSupervisors() {
-    xhttp.open("GET", "../functions/manage-supervisor.php", true);
-    xhttp.send();
-  }
-
-  function manageStudents() {
-    xhttp.open("GET", "../functions/manage-student.php", true);
-    xhttp.send();
-  }
+  
   
 
 </script>
 
 <script>
-$(function(){
+(function(){
   // add multiple select / deselect functionality
   $("#selectall").click(function () {
       $('.archive').attr('checked', this.checked);

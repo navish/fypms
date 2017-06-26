@@ -43,7 +43,7 @@
             $concept_note = mysqli_fetch_array($studentconcept);
             $concept_num_row = mysqli_num_rows($studentconcept);
             if($concept_num_row > "0") { ?>
-                <button class="w3-btn w3-btn-block w3-blue w3-left-align" onclick="supervisorConcepts()"><i class="fa fa-sticky-note-o   fa-fw w3-margin-right"></i> View Concept Notes</button>
+                <a href="supervisor-concepts.php"><button class="w3-btn w3-btn-block w3-blue w</a>3-left-align" ><i class="fa fa-sticky-note-o fa-fw w3-margin-right"></i> View Concept Notes</button>
                 <?php } 
            /* else { 
                 echo "There are no any submitted concepts. <br />";
@@ -60,7 +60,7 @@
       <!-- ***GROUPS*** -->
       <div class="w3-card-2">
         <div class="w3-white">
-          <button onclick="supervisorGroups()" class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i>View Groups </button>
+          <a href="supervisor-groups.php"><button class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i>View Groups </button></a>
           
           </div>
         </div>
@@ -69,7 +69,7 @@
       <!-- ***REPORTS*** --> 
       <div class="w3-card-2">
         <div class="w3-white">
-          <button onclick="supervisorReview()" class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-file-text fa-fw w3-margin-right"></i> Review Progress Reports</button>
+          <a href="sup-review-reports.php"><button class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-file-text fa-fw w3-margin-right"></i> Review Progress Reports</button></a>
              
         </div>      
       </div>
@@ -78,7 +78,7 @@
        <!-- ***REPORTS*** --> 
       <div class="w3-card-2">
         <div class="w3-white">
-          <button onclick="supervisorReports()" class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-file-text fa-fw w3-margin-right"></i> View Submitted Reports</button>
+          <a href="supervisor-reports.php"><button class="w3-btn-block w3-blue w3-left-align"><i class="fa fa-file-text fa-fw w3-margin-right"></i> View Submitted Reports</button></a>
              
         </div>      
       </div>

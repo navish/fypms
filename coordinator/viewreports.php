@@ -7,13 +7,8 @@
 	//$user_row = mysqli_fetch_array($result);
 
 	$grpsql = mysqli_query($dbcon, "SELECT * FROM grp ") or die(mysqli_error());
-	$group = mysqli_fetch_array($grpsql);
-
-	$groupNo = $group['grpNo'];
-
-	$repsql = "SELECT * FROM progressreport WHERE projectId = (SELECT projectId FROM project WHERE grpNo = '$groupNo')";
-	$reportsql = mysqli_query($dbcon,$repsql) or die(mysqli_error($dbcon));
-
+	//;
+ 
 	?>
 
 
@@ -51,6 +46,16 @@
 					  </tr>
 					</thead>
 					<?php 
+
+					while ($group = mysqli_fetch_array($grpsql)) {
+	 
+				 	$groupNo = $group['grpNo'];
+				 
+
+					$repsql = "SELECT * FROM progressreport WHERE projectId = (SELECT projectId FROM project WHERE grpNo = '$groupNo')";
+					$reportsql = mysqli_query($dbcon,$repsql) or die(mysqli_error($dbcon));
+
+					
 						while($report = mysqli_fetch_array($reportsql)) {
 						
 							$report1file = $report['review'];
@@ -104,8 +109,11 @@
 							} else {
 								echo 'No Submission' ;
 							}
-						 }
-						 ?></td>
+						 } //End while for Reports
+						} //End while for grpous
+						 ?>
+						 	
+						 </td>
 					</tr>
 				</table>
 	      
