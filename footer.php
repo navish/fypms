@@ -30,8 +30,7 @@ function openNav() {
 
 <!-- Index Page -->
 
-
-<script>
+<script type="text/javascript">
 var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -47,27 +46,12 @@ function disapproveGroup()  {
     xhttp.send();
   }
 
-function loadSupervisors() {
-  xhttp.open("GET", "../functions/supervisor.php", true);
-    xhttp.send();
-  }
 
-function submitConcept() {
-  xhttp.open("GET", "conceptnote.php", true);
-    xhttp.send();
-  }
-function suggestGroup() {
-  xhttp.open("GET", "suggestgroup.php", true);
-    xhttp.send();
-  }
 function loadUser() {
   xhttp.open("GET", "../functions/account-details.php", true);
     xhttp.send();
   }
-function uploadReport() { 
-  xhttp.open("GET", "submitreport.php", true);
-    xhttp.send();
-  }
+
  function supervisorConcepts() {
     xhttp.open("GET", "../functions/supervisor-concepts.php", true);
     xhttp.send();
@@ -80,10 +64,7 @@ function uploadReport() {
     xhttp.open("GET", "../functions/viewreports.php", true);
     xhttp.send();
   }
-  function studentReports() {
-    xhttp.open("GET", "../functions/student-reports.php", true);
-    xhttp.send();
-  }
+  
   function supervisorReports() {
     xhttp.open("GET", "../functions/supervisor-reports.php", true);
     xhttp.send();

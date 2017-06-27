@@ -1,4 +1,7 @@
-
+<?php
+  include '../dbcon.php';
+  include '../header.php';
+?>
 <!-- Page Container -->
 <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
   <!-- The Grid -->
@@ -6,17 +9,16 @@
 
     <!-- Left Column -->
     <div class="w3-col m3">
-      <?php include 'stu-nav.php';     ?>
-      <br />
-    </div>    
+     <?php include 'stu-nav.php';     ?>
     <!-- End Left Column -->
-    
+    </div>
     
     <!-- Middle Column -->
     <div class="w3-col m9">
+      
       <div id="main">
-                   
-        <div class="w3-row-padding">
+      <div class="w3-row-padding w3-container">
+       <div class="w3-row-padding">
         <div class="w3-col m12">
           <div class="w3-card-2 w3-white">
             <div class="w3-container w3-padding">
@@ -56,8 +58,8 @@
 
               if (isset($_POST['submit'])) 
               {
-                $fMember = mysqli_real_escape_string($_POST['fMember']);
-                $sMember = mysqli_real_escape_string($_POST['sMember']);
+                $fMember = mysqli_real_escape_string($dbcon,$_POST['fMember']);
+                $sMember = mysqli_real_escape_string($dbcon,$_POST['sMember']);
 
                 $suggestion = mysqli_query($dbcon, "INSERT into suggestedgroup(fMember, sMember, tMember, approval) VALUES ('$fMember','$sMember','$regNo', 'waiting') ") or die(mysqli_error($dbcon));
                 if ($suggestion) {
@@ -75,21 +77,31 @@
     </div>
   </div>
       </div>
-    </div>
+    <br />
+      </div>
+      
     <!-- End Middle Column -->
-  </div> 
+    </div>
+    
+    
   <!-- End Grid -->
-</div>  
+  </div>
   
 <!-- End Page Container -->
-
-
+</div>
 <br>
 
 <!-- Footer -->
+<?php
+  include '../footer.php';
+?>
 
 
-<?php include '..\footer.php'; ?>
+      <br />
+    </div>    
+
+
+<br>
 
 <script>
 function suggestGroup() {
@@ -149,4 +161,3 @@ function showMember2(str) {
     }
 }*/
 </script>
-

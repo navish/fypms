@@ -1,10 +1,5 @@
 <?php 
 
-if (!($_SESSION['id']) ){
-header('location:../index.php');
-exit();
-
-}
 
   $get_user = $_SESSION['id'];
 
@@ -130,7 +125,7 @@ exit();
       </div>
       <br />
         <div class="w3-card-2 w3-round w3-white w3-center">
-          <button class="w3-btn-block w3-blue w3-left-align" onclick="loadSupervisors();"> Supervisors </button>
+          <button class="w3-btn-block w3-blue w3-left-align" onclick="loadSupervisors()"> Supervisors </button>
       </div>
       <br />
       
@@ -139,4 +134,32 @@ exit();
       </div>
       <br />
          
-    
+    <script type="text/javascript">
+     
+  var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+       document.getElementById("main").innerHTML = this.responseText;
+      }
+    };
+  function loadSupervisors() {
+  xhttp.open("GET", "../functions/supervisor.php", true);
+    xhttp.send();
+  }
+  function studentReports() {
+      xhttp.open("GET", "../functions/student-reports.php", true);
+      xhttp.send();
+  }
+  function uploadReport() { 
+  xhttp.open("GET", "submitreport.php", true);
+    xhttp.send();
+  }
+  function submitConcept() {
+  xhttp.open("GET", "conceptnote.php", true);
+    xhttp.send();
+  }
+function suggestGroup() {
+  xhttp.open("GET", "suggestgroup.php", true);
+    xhttp.send();
+  }
+</script>

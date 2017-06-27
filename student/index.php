@@ -1,5 +1,10 @@
 <?php
   include '../header.php';
+    if (!($_SESSION['id']) ){
+    header('location:../index.php');
+    exit();
+
+    }
 
 ?>
 
