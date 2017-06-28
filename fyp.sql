@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2017 at 07:33 AM
+-- Generation Time: Jun 28, 2017 at 09:48 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -67,9 +67,9 @@ CREATE TABLE `conceptnote` (
 INSERT INTO `conceptnote` (`conceptid`, `studentid`, `proposedtitle`, `expectedoutput`, `conceptfile`, `supervisor`, `reccomended`, `approval`, `time`) VALUES
 (1, '2014-04-02775', 'Makulaji', 'Mobile App', '', 'cvictor', 'waiting', 'waiting', '2017-04-19 09:53:00'),
 (2, '2014-04-02765', 'Free Gaming', 'Web and Mobile App', '', 'cmushi', 'no', 'disapproved', '2017-04-19 09:54:12'),
-(5, '$regNo', '$proptitle', '$expectedoutput', '$target_file', 'cvictor', 'no', 'waiting', '2017-06-07 17:50:05'),
+(5, '$regNo', '$proptitle', '$expectedoutput', '$target_file', 'cvictor', 'no', 'disapproved', '2017-06-07 17:50:05'),
 (6, '2014-04-02753', 'Nana', 'Web APP', '../concept-notes/GR5.pdf', 'cvictor', 'no', 'waiting', '2017-06-07 17:51:12'),
-(8, '2014-04-02776', 'Betting for Basketball', 'Mob App', '../concept-notes/D_interior_logo.pdf', 'cmushi', 'no', 'waiting', '2017-06-07 18:30:13');
+(8, '2014-04-02776', 'Betting for Basketball', 'Mob App', '../concept-notes/D_interior_logo.pdf', 'cmushi', 'no', 'approved', '2017-06-07 18:30:13');
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,8 @@ CREATE TABLE `grp` (
 
 INSERT INTO `grp` (`grpId`, `grpNo`, `approval`, `empId`) VALUES
 (2017003, 3, 1, 'cvictor'),
-(2017005, 5, 1, 'cmushi');
+(2017005, 5, 1, 'cmushi'),
+(2017042, 1, 1, 'hkalisti');
 
 -- --------------------------------------------------------
 
@@ -110,11 +111,9 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`user`, `passwrd`, `role`) VALUES
 ('1000', '55eede497d7871e31b3b3f83be7d774b', 0),
-('cmushi', '9ceb182d9b8ff8f677b8452a47a546eb', 1),
-('cvictor', '6238d420eea563fde00d3ed01b6b6074', 1),
 ('2014-04-02747', 'Kowero', 2),
 ('2014-04-02748', 'Mwaisaka', 2),
-('2014-04-02753', '7b0f81bdd2b24ba32cb27f6c16e6b900', 2),
+('2014-04-02753', '172522ec1028ab781d9dfd17eaca4427', 2),
 ('2014-04-02757', 'Mhagama', 2),
 ('2014-04-02765', '600515d87c3796b0a4719d5640f3c551', 2),
 ('2014-04-02775', '8935705368873b69917af5531f3fcb25', 2),
@@ -131,8 +130,10 @@ INSERT INTO `login` (`user`, `passwrd`, `role`) VALUES
 ('2014-04-02928', 'Amasi', 2),
 ('2014-04-02941', 'c2a49574d9a282bbfc2b53978febe37e', 2),
 ('2014-04-02953', 'Mwangila', 2),
+('cmushi', '9ceb182d9b8ff8f677b8452a47a546eb', 1),
+('cvictor', 'ffc150a160d37e92012c196b6af4160d', 1),
 ('hkalisti', '6b0130f25b82cafd888154c29440ff20', 1),
-('hkimaro', '2f4ce07dc44d40051a58acfd5a4839c6', 1),
+('hkimaro', '2f4ce07dc44d40051a58acfd5a4839c6', 0),
 ('kfrank', 'f9dc77cece7fa16f6edd2d1d64853e4b', 1),
 ('kkapis', 'fe24d2219c3c9d858d3b69916ab123d1', 1),
 ('mtunga', '6f0ae3c152b033b7237808cd1a74814f', 1);
@@ -215,7 +216,7 @@ CREATE TABLE `progressreport` (
 
 INSERT INTO `progressreport` (`reportId`, `projectId`, `review`, `sem1_progress`, `sem1_final`, `sem2_progress`, `sem2_final`) VALUES
 (1, 1, '', 'reports/gr42.pdf', NULL, NULL, NULL),
-(2, 2, '../review-reports/SRS v1.docx', '../finalsub-reports/Bunnies-From-the-Future-FKB-MG-Books.pdf', '', '../finalsub-reports/multi-screen-consumer-whitepaper_research-studies.pdf', '../finalsub-reports/how to win friends and influence people.pdf');
+(2, 2, '../review-reports/Qn 2.docx', '../finalsub-reports/Bunnies-From-the-Future-FKB-MG-Books.pdf', '', '../finalsub-reports/multi-screen-consumer-whitepaper_research-studies.pdf', '../finalsub-reports/how to win friends and influence people.pdf');
 
 -- --------------------------------------------------------
 
@@ -236,7 +237,7 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`projectId`, `projectTitle`, `description`, `output`, `grpNo`) VALUES
-(1, 'LGA\'s Land Valuation and Taxation Management System\r\n\r\n', 'An application that assists local governments in maintaining land and their respective tax collection data.', 'A web app', 42),
+(1, 'LGA\'s Land Valuation and Taxation Management System\r\n\r\n', 'An application that assists local governments in maintaining land and their respective tax collection data.', 'A web app', 1),
 (2, 'Final Year Project Management System', 'A system that manages content for final year projects carried out by finalist students at CoICT', 'Web app system', 5),
 (4, 'YellowApp', 'Connect to your campus friends via your favorite.', 'Mobile App', 3);
 
@@ -298,7 +299,7 @@ CREATE TABLE `suggestedgroup` (
   `fMember` varchar(13) NOT NULL,
   `sMember` varchar(13) NOT NULL,
   `tMember` varchar(13) NOT NULL,
-  `approval` varchar(10) NOT NULL
+  `approval` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -307,9 +308,10 @@ CREATE TABLE `suggestedgroup` (
 
 INSERT INTO `suggestedgroup` (`sugId`, `fMember`, `sMember`, `tMember`, `approval`) VALUES
 (32431, '2014-04-02801', '2014-04-02763', '', 'waiting'),
-(32433, '2014-04-02750', '2014-04-02812', '2014-04-02758', 'approved'),
-(32434, '2014-04-02941', '2014-04-02854', '', 'approved'),
-(32435, '2014-04-02941', '2014-04-02854', '2014-04-02776', 'waiting');
+(32433, '2014-04-02750', '2014-04-02812', '2014-04-02758', 'disapproved'),
+(32434, '2014-04-02941', '2014-04-02753', '', 'approved'),
+(32435, '2014-04-02941', '2014-04-02854', '2014-04-02776', 'waiting'),
+(32437, '2014-04-02854', '2014-04-02765', '2014-04-02776', 'approved');
 
 -- --------------------------------------------------------
 
@@ -464,8 +466,11 @@ ALTER TABLE `project`
 -- AUTO_INCREMENT for table `suggestedgroup`
 --
 ALTER TABLE `suggestedgroup`
-  MODIFY `sugId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32436;
+  MODIFY `sugId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32438;
 --
+
+ALTER TABLE `grp`
+MODIFY `grpNo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 -- Constraints for dumped tables
 --
 

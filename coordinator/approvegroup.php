@@ -33,6 +33,3 @@
              
 	?>
 
-<script type="text/javascript">
-	alert("Group approved");
-</script>

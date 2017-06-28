@@ -60,6 +60,7 @@
                 </thead>
                 <?php 
                   while($group_row = mysqli_fetch_array($sqlgrp)) {
+                            $assignId =  $group_row['sugId'];
                 ?>
                 <tr>
                   <td>
@@ -85,25 +86,57 @@
                   ?>
                     
                   </td>
-                  <td>Title Comming Soon</td>
-                  <td>
-                  	<select class="w3-select" name="option">
+                  <td><?php
+                   $title="Title";
+                   echo $title;
+                  
+                  ?></td>
+                  <td><form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                  	<select class="w3-select" name="assignedsupervisor">
                   	<?php
                   		$result = mysqli_query($dbcon, "SELECT * FROM supervisor") or die(mysql_error());
                   		while ($user_row = mysqli_fetch_array($result)) {
                   		$supervisor = $user_row['empId'];
-						 echo $user_row['fName']." ".$user_row['lName']; 
-						echo "<option value=".$supervisor.">".$user_row['fName']." ".$user_row['lName']."</option>"; 
-						 } ?>
+          						echo $user_row['fName']." ".$user_row['lName']; 
+          						echo "<option value=".$supervisor.">".$user_row['fName']." ".$user_row['lName']."</option>"; 
+          						 } ?>
 					</select>
                    </td>
                   	<td> 
-                    <button class="w3-padding w3-btn w3-green " onclick="assignSupervisor()"><i class="fa fa-check fa-fw"></i>Assign</button>
+                    <button class="w3-padding w3-btn w3-green " type="submit" name="assign"><i class="fa fa-check fa-fw"></i>Assign</button>
+                  </form>
+
                     </td>
                 </tr>
                 <?php } //End While ?>
+                <?php 
+                    if (isset($_POST['assign'])) {
+                      $assignedsupervisor = $_POST['assignedsupervisor'];
+                      $randId = rand(713, 100000);
+                      $assignedsup = mysqli_query($dbcon, "INSERT INTO `grp`(`grpId`,`approval`, `empId`) VALUES ('$randId','1','$assignedsupervisor')") or die(mysqli_error($dbcon));
+
+                      $gresult = mysqli_query($dbcon, "SELECT * FROM grp WHERE grpId = '$randId'") or die(mysql_error());
+                      $grp_row = mysqli_fetch_array($gresult);
+                      $grp = $grp_row['grpNo'];
+
+                      $assignmembersql = "INSERT INTO `members`(`grpNo`, `regNo`) VALUES ('$grp','$member1'),('$grp','$member2'),('$grp','$member3')";
+              
+                      $approvesql = mysqli_query($dbcon, "UPDATE suggestedgroup SET approval='assigned' WHERE sugId = '$assignId'") or die(mysqli_error($dbcon));
+                    if($approvesql) { 
+
+                      $assignedgrp = mysqli_query($dbcon, $assignmembersql) or die(mysqli_error($dbcon));
+
+                      if ($assignedsup && $assignedgrp) {
+                        echo "<script type=\"text/javascript\"> alert(\"You have assigned a supervisor\"); </script>";
+                      } else {
+                        echo "<script type=\"text/javascript\"> alert(\"You have failed to assign a supervisor\"); </script>";
+                      }
+                     } 
+                    } 
+                  ?>  
               </table>
-             <?php } //End Else
+             <?php 
+             } //End Else
              ?>
             </div>      
           </div>

@@ -86,7 +86,6 @@
                   </td>
                   <td>Title Comming Soon</td>
                   <td> 
-                  <?php echo $sugId; ?>
                     <form action=""   method="POST" >
                       <button class="w3-padding w3-btn w3-green w3-left-align" type="submit" name="approve" onclick="approveGroup()"><i class="fa fa-check fa-fw"></i></button>
                       <button class="w3-padding w3-btn w3-red w3-left-align" name="disapprove" onclick="disapproveGroup()"><i class="fa fa-remove fa-fw"></i></button>
