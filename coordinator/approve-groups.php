@@ -133,7 +133,7 @@
     xhttp.send();
   }
 function disapproveGroup()  {
-    xhttp.open("GET", " approvegroup.php?groupsug='<?php echo $sugId; ?>'" , true);
+    xhttp.open("GET", " disapprovegroup.php?groupsug='<?php echo $sugId; ?>'" , true);
     xhttp.send();
   }
 
