@@ -134,7 +134,7 @@
       </div>
       <br />
          
-    <script type="text/javascript">
+<script type="text/javascript">
      
   var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {

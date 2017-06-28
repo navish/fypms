@@ -1,5 +1,5 @@
 <?php
-  include 'header.php';
+  //include 'header.php';
 
 ?>
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 <body>
 <div class="w3-top">
  <div class="w3-bar w3-blue w3-left-align w3-large w3-padding">
-  <a href="index.php" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i></a>
+  <button class="w3-button w3-padding w3-white" onclick="goBack()"><i class="fa fa-arrow-left w3-margin-right"></i>Go Back</button>
 
   <!-- RIGHT SIDE -->
     
@@ -84,7 +84,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         <p>&copy<?php $yr=getdate(date("U")); echo "$yr[year]";   ?> CoICT-UDSM - All Rights Reserved. </p>
       </div>
 </footer>
-
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 <script type="text/javascript">

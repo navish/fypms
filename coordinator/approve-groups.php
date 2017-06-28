@@ -50,6 +50,7 @@
                 </thead>
                 <?php 
                   while($group_row = mysqli_fetch_array($sqlgrp)) {
+                    $sugId = $group_row['sugId'];
                 ?>
                 <tr>
                   <td>
@@ -85,6 +86,7 @@
                   </td>
                   <td>Title Comming Soon</td>
                   <td> 
+                  <?php echo $sugId; ?>
                     <form action=""   method="POST" >
                       <button class="w3-padding w3-btn w3-green w3-left-align" type="submit" name="approve" onclick="approveGroup()"><i class="fa fa-check fa-fw"></i></button>
                       <button class="w3-padding w3-btn w3-red w3-left-align" name="disapprove" onclick="disapproveGroup()"><i class="fa fa-remove fa-fw"></i></button>
@@ -118,7 +120,24 @@
 <?php
   include '../footer.php';
 ?>
+<script type="text/javascript">
+     
+  var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+       document.getElementById("main").innerHTML = this.responseText;
+      }
+    };
+  function approveGroup()  {
+    xhttp.open("GET", "approvegroup.php?groupsug=<?php echo $sugId; ?>", true);
+    xhttp.send();
+  }
+function disapproveGroup()  {
+    xhttp.open("GET", " approvegroup.php?groupsug='<?php echo $sugId; ?>'" , true);
+    xhttp.send();
+  }
 
+</script>
 </body>
 </html> 
 
