@@ -28,6 +28,6 @@ while ($row = mysqli_fetch_array($result)) {
         <h4><?php echo $row['title'];?></h4>
         <p><?php echo $row['description']; 
         ?></p>
-        <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom">More Details</button> 
+        
  </div>
  <?php } ?>

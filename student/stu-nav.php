@@ -125,12 +125,16 @@
       </div>
       <br />
         <div class="w3-card-2 w3-round w3-white w3-center">
-          <button class="w3-btn-block w3-blue w3-left-align" onclick="loadSupervisors()"> Supervisors </button>
+          <button class="w3-btn-block w3-blue w3-left-align" onclick="loadSupervisors()"><i class="fa fa-users fa-fw w3-margin-right"></i> Supervisors </button>
       </div>
       <br />
       
       <div class="w3-card-2 w3-round w3-white w3-center">
-          <a href="../search-projects.php"><button class="w3-btn-block w3-blue w3-left-align" onclick="">Projects Archieve</button></a>
+          <button class="w3-btn-block w3-blue w3-left-align" onclick="astorojects()"><i class="fa fa-file-text fa-fw w3-margin-right"></i>Past projects </button>
+      </div>
+      <br />
+      <div class="w3-card-2 w3-round w3-white w3-center">
+          <a href="../search-projects.php"><button class="w3-btn-block w3-blue w3-left-align" onclick=""><i class="fa fa-search fa-fw w3-margin-right"></i>Projects Archieve</button></a>
       </div>
       <br />
          
@@ -156,6 +160,10 @@
   }
   function submitConcept() {
   xhttp.open("GET", "conceptnote.php", true);
+    xhttp.send();
+  }
+  function astorojects() {
+  xhttp.open("GET", "pastprojects.php", true);
     xhttp.send();
   }
 function suggestGroup() {

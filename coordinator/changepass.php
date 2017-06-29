@@ -5,8 +5,11 @@
             {
               $pass = $_POST['pass'];
               $confirmpass = $_POST['confirmpass'];
+
               if ($pass == $confirmpass) {
-                  $loginsql = mysqli_query($dbcon, "UPDATE login SET passwrd='$confirmpass' WHERE user = '$get_user'") or die(mysqli_error($dbcon));
+                $password = md5($confirmpass);
+                
+                  $loginsql = mysqli_query($dbcon, "UPDATE login SET passwrd='$password' WHERE user = '$get_user'") or die(mysqli_error($dbcon));
                   if ($loginsql) { 
                     echo "Password changed successfully";
                      

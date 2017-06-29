@@ -1,7 +1,7 @@
 <?php
+ error_reporting(0);
   include '../header.php';
-  $get_user ="";
-  $get_user = $_GET['user'];
+    $get_user = $_GET['user'];
 ?>
 
 <!-- Page Container -->
@@ -31,7 +31,7 @@
               <h3 class="w3-center">UPDATE PASSWORD</h3>
               </div>
               <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-              <div class="w3-col m3 w3-padding"><input class="w3-input" type="text" name="<?php echo $get_user;  ?>" value="<?php echo $get_user;  ?>" placeholder="Username" required> </div>
+              <div class="w3-col m3 w3-padding"><input class="w3-input" type="text" name="student" value="<?php echo $get_user;  ?>" placeholder="Username" required> </div>
                 <div class="w3-col m3 w3-padding"><input class="w3-input" type="password" name="pass" placeholder="Password" required> </div>
             <div class="w3-col m3 w3-padding"><input class="w3-input" type="password" name="confirmpass" placeholder="Confirm Password" required></div>
             <div class="w3-col m3 w3-padding"><button type="" name="update" class="w3-btn" > Update Password</button></div>
@@ -40,16 +40,19 @@
             <?php
                 if(isset($_POST['update']))
                 {
-                  //$get_user = $_POST['user'];
+                  $student = $_POST['student'];
                   $pass = $_POST['pass'];
                   $confirm = $_POST['confirmpass'];
 
+
                   if ($pass == $confirm) {
                     $confirmpass = md5($confirm);
-                      $loginsql = mysqli_query($dbcon, "UPDATE `login` SET `passwrd`='$confirmpass' WHERE `user` = $get_user") or die(mysqli_error($dbcon));
+
+                      $loginsql = mysqli_query($dbcon, "UPDATE `login` SET `passwrd`='$confirmpass' WHERE `user` = '$student'") or die(mysqli_error($dbcon));
                       if ($loginsql) { 
                         echo '<div class="w3-center w3-border-green">Password changed successfully</div>';
                         //echo "$confirmpass";
+
 
                         } else { 
                           echo '<div class="w3-center w3-border-red">Something went wrong password was not changed</div>';

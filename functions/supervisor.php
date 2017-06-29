@@ -27,7 +27,7 @@
 		  <td><?php echo $user_row['expertise']; ?></td>
 		  <td><?php echo $user_row['phoneNo']; ?></td>
 		  <td><?php echo $user_row['email']; ?></td>
-		  <td><?php echo "Coming Soon" #$user_row['office'];  ?></td>
+		  <td><?php echo $user_row['office'];  ?></td>
 		</tr>
 		<?php } ?>
 	</table>
