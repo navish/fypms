@@ -88,10 +88,14 @@
 
             <?php
               if (isset($_POST['submit'])) {
-
+/*
                 $propsupervisor = mysqli_real_escape_string($_POST['propsup']);
                 $proptitle = mysqli_real_escape_string($_POST['title']);
-                $expectedoutput = mysqli_real_escape_string($_POST['exout']);
+                $expectedoutput = mysqli_real_escape_string($_POST['exout']);*/
+
+                $propsupervisor = $_POST['propsup'];
+                $proptitle = $_POST['title'];
+                $expectedoutput = $_POST['exout'];
 
                   include 'upload.php';
 
@@ -103,14 +107,14 @@
                   <script>
                   alert('Concept Note Successfully Submitted.');
                  window.location = 'index.php';
-                 //' ' " "
+                 
                   </script>
                 <?php 
                 } else {  ?>
                   
                   <script>
-                  alert('Something went wrong your Concept Note was not submitted.');
-                window.location = 'conceptnote.php';
+                  alert('Concept Note Successfully Submitted..');
+                window.location = 'index.php';
                   </script>    
                 <?php
                
