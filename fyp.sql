@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2017 at 09:48 AM
+-- Generation Time: Aug 09, 2017 at 05:46 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -40,7 +40,9 @@ CREATE TABLE `announcement` (
 INSERT INTO `announcement` (`id`, `title`, `description`, `time`) VALUES
 (12, 'Concept Note Submission', 'Submit your concept notes before the 13th week of the second sememster', '2017-03-03 14:02:34'),
 (13, 'Reminder: Submission Deadline for Concept Notes', 'You are all reminded to submit your concept notes on time to avoid penalties.', '2017-03-03 14:02:34'),
-(15, 'Progress Report', 'Dear Students you are required to submit your progress reports in hard copy and soft copy before 5th Friday 2017 at 1600 hours.  Upload your soft copies in here and submit hard copies at the coordinator\'s office ', '2017-03-05 06:44:10');
+(15, 'Progress Report', 'Dear Students you are required to submit your progress reports in hard copy and soft copy before 5th Friday 2017 at 1600 hours.  Upload your soft copies in here and submit hard copies at the coordinator\'s office ', '2017-03-05 06:44:10'),
+(16, 'Final session', 'Grand finale in June', '2017-06-29 07:08:31'),
+(17, 'Tunatest site', 'Kuna Kamag, Danny, Kelvin, na Nancy', '2017-07-24 15:14:05');
 
 -- --------------------------------------------------------
 
@@ -66,10 +68,11 @@ CREATE TABLE `conceptnote` (
 
 INSERT INTO `conceptnote` (`conceptid`, `studentid`, `proposedtitle`, `expectedoutput`, `conceptfile`, `supervisor`, `reccomended`, `approval`, `time`) VALUES
 (1, '2014-04-02775', 'Makulaji', 'Mobile App', '', 'cvictor', 'waiting', 'waiting', '2017-04-19 09:53:00'),
-(2, '2014-04-02765', 'Free Gaming', 'Web and Mobile App', '', 'cmushi', 'no', 'disapproved', '2017-04-19 09:54:12'),
 (5, '$regNo', '$proptitle', '$expectedoutput', '$target_file', 'cvictor', 'no', 'disapproved', '2017-06-07 17:50:05'),
 (6, '2014-04-02753', 'Nana', 'Web APP', '../concept-notes/GR5.pdf', 'cvictor', 'no', 'waiting', '2017-06-07 17:51:12'),
-(8, '2014-04-02776', 'Betting for Basketball', 'Mob App', '../concept-notes/D_interior_logo.pdf', 'cmushi', 'no', 'approved', '2017-06-07 18:30:13');
+(8, '2014-04-02776', 'Betting for Basketball', 'Mob App', '../concept-notes/D_interior_logo.pdf', 'cmushi', 'no', 'approved', '2017-06-07 18:30:13'),
+(12, '2014-04-02765', 'Baby Cot', 'Mobile App', '../concept-notes/babycot.docx', 'cmushi', 'no', 'waiting', '2017-06-29 09:22:08'),
+(13, '2014-04-02765', 'Feeder', 'device', '../concept-notes/feeder.docx', 'mtunga', 'no', 'waiting', '2017-06-29 09:24:41');
 
 -- --------------------------------------------------------
 
@@ -89,6 +92,32 @@ CREATE TABLE `grp` (
 --
 
 INSERT INTO `grp` (`grpId`, `grpNo`, `approval`, `empId`) VALUES
+(6482, 10, 1, 'mtunga'),
+(9721, 15, 1, 'mtunga'),
+(10657, 21, 1, 'hkimaro'),
+(13199, 27, 1, 'hkalisti'),
+(14887, 18, 1, 'hkimaro'),
+(16872, 31, 1, 'cmushi'),
+(20087, 22, 1, 'hkimaro'),
+(24083, 17, 1, 'hkimaro'),
+(28728, 25, 1, 'hkalisti'),
+(32413, 28, 1, 'cmushi'),
+(32761, 35, 1, 'cmushi'),
+(35328, 23, 1, 'hkimaro'),
+(38879, 20, 1, 'hkimaro'),
+(46281, 29, 1, 'cmushi'),
+(53347, 33, 1, 'cmushi'),
+(61580, 34, 1, 'cmushi'),
+(70876, 14, 1, 'mtunga'),
+(72576, 16, 1, 'hkimaro'),
+(79481, 30, 1, 'cmushi'),
+(87859, 24, 1, 'hkimaro'),
+(88508, 12, 1, 'mtunga'),
+(89959, 11, 1, 'mtunga'),
+(90207, 26, 1, 'hkalisti'),
+(91401, 32, 1, 'cmushi'),
+(96052, 13, 1, 'mtunga'),
+(99337, 19, 1, 'hkimaro'),
 (2017003, 3, 1, 'cvictor'),
 (2017005, 5, 1, 'cmushi'),
 (2017042, 1, 1, 'hkalisti');
@@ -115,12 +144,12 @@ INSERT INTO `login` (`user`, `passwrd`, `role`) VALUES
 ('2014-04-02748', 'Mwaisaka', 2),
 ('2014-04-02753', '172522ec1028ab781d9dfd17eaca4427', 2),
 ('2014-04-02757', 'Mhagama', 2),
-('2014-04-02765', '600515d87c3796b0a4719d5640f3c551', 2),
+('2014-04-02765', '30035607ee5bb378c71ab434a6d05410', 2),
 ('2014-04-02775', '8935705368873b69917af5531f3fcb25', 2),
 ('2014-04-02776', '0781e795b6339868e4d2822ed8f79155', 2),
 ('2014-04-02795', 'Manyhnela ', 2),
 ('2014-04-02807', 'Wickama', 2),
-('2014-04-02834', 'Moshi', 2),
+('2014-04-02834', '5b5c45f1b9e444d9e441211cfb325270', 2),
 ('2014-04-02835', 'Jackson', 2),
 ('2014-04-02838', 'Gaitu', 2),
 ('2014-04-02841', 'Mwakalundwa', 2),
@@ -166,10 +195,70 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`grpNo`, `regNo`) VALUES
+(1, '2014-04-02750'),
+(1, '2014-04-02758'),
 (3, '2014-04-02775'),
+(3, '2014-04-02801'),
 (5, '2014-04-02753'),
 (5, '2014-04-02765'),
-(5, '2014-04-02862');
+(5, '2014-04-02862'),
+(10, ''),
+(10, '2014-04-02753'),
+(10, '2014-04-02765'),
+(10, '2014-04-02776'),
+(10, '2014-04-02854'),
+(10, '2014-04-02941'),
+(11, '2014-04-02915'),
+(11, '2014-04-02926'),
+(11, '2014-04-02928'),
+(17, ''),
+(17, '2014-04-02753'),
+(17, '2014-04-02941'),
+(18, '2014-04-02765'),
+(18, '2014-04-02776'),
+(18, '2014-04-02854'),
+(19, '2014-04-02765'),
+(19, '2014-04-02776'),
+(19, '2014-04-02854'),
+(20, '2014-04-02765'),
+(20, '2014-04-02776'),
+(20, '2014-04-02854'),
+(21, '2014-04-02765'),
+(21, '2014-04-02776'),
+(21, '2014-04-02854'),
+(22, '2014-04-02765'),
+(22, '2014-04-02776'),
+(22, '2014-04-02854'),
+(23, '2014-04-02765'),
+(23, '2014-04-02776'),
+(23, '2014-04-02854'),
+(24, '2014-04-02765'),
+(24, '2014-04-02776'),
+(24, '2014-04-02854'),
+(25, '2014-04-02765'),
+(25, '2014-04-02776'),
+(25, '2014-04-02854'),
+(29, '2014-04-02765'),
+(29, '2014-04-02776'),
+(29, '2014-04-02854'),
+(30, '2014-04-02765'),
+(30, '2014-04-02776'),
+(30, '2014-04-02854'),
+(31, '2014-04-02765'),
+(31, '2014-04-02776'),
+(31, '2014-04-02854'),
+(32, '2014-04-02765'),
+(32, '2014-04-02776'),
+(32, '2014-04-02854'),
+(33, '2014-04-02765'),
+(33, '2014-04-02776'),
+(33, '2014-04-02854'),
+(34, '2014-04-02765'),
+(34, '2014-04-02776'),
+(34, '2014-04-02854'),
+(35, ''),
+(35, '2014-04-02753'),
+(35, '2014-04-02941');
 
 -- --------------------------------------------------------
 
@@ -183,6 +272,7 @@ CREATE TABLE `pastproject` (
   `year` year(4) NOT NULL,
   `description` text NOT NULL,
   `output` text NOT NULL,
+  `pastprojectfile` varchar(60) NOT NULL,
   `supervisorId` varchar(20) NOT NULL,
   `students` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -191,8 +281,8 @@ CREATE TABLE `pastproject` (
 -- Dumping data for table `pastproject`
 --
 
-INSERT INTO `pastproject` (`id`, `title`, `year`, `description`, `output`, `supervisorId`, `students`) VALUES
-(1, 'Book Swappers', 2015, 'A site for book lovers to showcase their book libraries and swap books with other readers', 'Web App', 'cvictor', '2015004');
+INSERT INTO `pastproject` (`id`, `title`, `year`, `description`, `output`, `pastprojectfile`, `supervisorId`, `students`) VALUES
+(1, 'Book Swappers', 2015, 'A site for book lovers to showcase their book libraries and swap books with other readers', 'Web App', '..\\past-projects\\BookSwappers.pdf', 'cvictor', '2015004');
 
 -- --------------------------------------------------------
 
@@ -309,9 +399,9 @@ CREATE TABLE `suggestedgroup` (
 INSERT INTO `suggestedgroup` (`sugId`, `fMember`, `sMember`, `tMember`, `approval`) VALUES
 (32431, '2014-04-02801', '2014-04-02763', '', 'waiting'),
 (32433, '2014-04-02750', '2014-04-02812', '2014-04-02758', 'disapproved'),
-(32434, '2014-04-02941', '2014-04-02753', '', 'approved'),
-(32435, '2014-04-02941', '2014-04-02854', '2014-04-02776', 'waiting'),
-(32437, '2014-04-02854', '2014-04-02765', '2014-04-02776', 'approved');
+(32434, '2014-04-02941', '2014-04-02753', '', 'assigned'),
+(32435, '2014-04-02941', '2014-04-02854', '2014-04-02776', 'approved'),
+(32437, '2014-04-02854', '2014-04-02765', '2014-04-02776', 'assigned');
 
 -- --------------------------------------------------------
 
@@ -436,12 +526,17 @@ ALTER TABLE `supervisor`
 -- AUTO_INCREMENT for table `announcement`
 --
 ALTER TABLE `announcement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `conceptnote`
 --
 ALTER TABLE `conceptnote`
-  MODIFY `conceptid` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `conceptid` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `grp`
+--
+ALTER TABLE `grp`
+  MODIFY `grpNo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `logs`
 --
@@ -468,9 +563,6 @@ ALTER TABLE `project`
 ALTER TABLE `suggestedgroup`
   MODIFY `sugId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32438;
 --
-
-ALTER TABLE `grp`
-MODIFY `grpNo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 -- Constraints for dumped tables
 --
 
